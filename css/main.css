@@ -3,6 +3,123 @@ Import fonts here
 @import url('');
  */
 
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+/*Formatting for the navigation bar*/
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #323232;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.title {
+    float: left;
+    font-family: 'Courier New', sans-serif;
+    font-size: 3em;
+}
+
+#title:hover {
+    color: green;
+}
+
+nav {
+    float: right;
+    font-family: 'Courier New', sans-serif;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 70px;
+    padding-top: 40px;
+    color: #707070;
+}
+
+nav li:hover {
+    display: inline-block;
+    margin-right: 70px;
+    padding-top: 40px;
+    color: #ffffff;
+}
+
+h3 {
+    font-family: 'Courier New', sans-serif;
+    font-size: 2.5em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+
+
+
+
+
+/*Formatting for introduction section*/
+#profile-pic {
+    float: left;
+}
+
+#about-me {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 title {
     margin: 0;
     //backdrop: ;
@@ -33,7 +150,7 @@ ul {
 */
 
 
-
+/*
 
 .container {
 
@@ -43,16 +160,30 @@ ul {
  }
 &__text {
      display: inline;
+    float: right;
  }
 }
 
 .container{
+    position: relative;
+    float: right;
+}
+
+
+
+.nav_bar {
+    font-family: 'Courier New', sans-serif;
+    font-size: 2.5em;
 
 }
 
-.header_container {
-    font-family: 'Courier New', sans-serif;
-    font-size: 3em;
+ul#horizontal-list {
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+}
+ul#horizontal-list li {
+    display: inline;
 }
 
 .motto {
@@ -100,3 +231,5 @@ img {
     text-align: center;
     padding: 10px;
 }
+
+*/
