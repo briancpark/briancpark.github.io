@@ -12,31 +12,31 @@
 
         <header>
             <div class = "container">
-
-                <h1 class = "title" id="title">Brian Park</h1>
+                <h1 class = "title" id="title"><a id="nav_links" href="index.html">Brian Park</a></h1>
 
                 <nav>
                     <ul>
-                        <li>projects</li>
+                        <li><a id="nav_links" href="projects.html">projects</a></li>
                         <li>academia</li>
                         <li>creator</li>
-                        <li>more about me</li>
+                        <li><a id="nav_links" href="MoreAboutMe.html">more about me</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-
         <!--Navigation Bar with links-->
+
         <main>
             <article>
-                <img id="profile-pic" height="500" src="images/profile_pic.jpeg" alt = "Profile Picture"/>
                 <section id="about-me">
+                    <img id="profile-pic" height="500" src="images/profile_pic.jpeg" alt = "Profile Picture"/>
+                    <div id ="introduction">
                         <p>
                             안녕! Hi, my name is Brian Park. I am from Charlotte, North Carolina
-                            and currently go to college at University of California, Berkeley.
+                            and currently a junior at University of California, Berkeley.
                             <i><b>Go Bears!</b></i> I am a proud Korean-American. When I'm not
                             coding I like to go traveling, camping, and extensively binge watch YouTube
-                            and Netflix. Here is a link to my <a href = "media/Brian_Park_Resume.pdf">resume</a>
+                            and Netflix. Here is a link to my <a href = "">resume</a>
                             if you are interested in recruiting me. Scroll down more to know more about me!
                         </p>
 
@@ -47,27 +47,47 @@
                             for over a year, I was influenced by the huge wave of Computer Science students
                             and Bay Area tech companies. I fast tracked my CS degree and took all the
                             requirements to declare Computer Science BA major in just two semesters.
-                            My interests career wise is software engineering. Paired up with my Chemistry
-                            BS major, I am interested in quantum computing when that becomes mainstream. Let's hope
-                            that I can develop distributable software for quantum computers in the very near future!
+                            I had the intent to switch out of the chemistry major, but realized that I could use my
+                            software to solve my difficult chemistry problems and understandings. After taking all the lower
+                            division requirements needed for a computer science major in two semesters, my perception of the world changed,
+                            and I saw software as the answer to all things. Every time I interact with technology, in the back of my head, I am
+                            always thinking how this piece of hardware or software is programmed to interact with me.
+                            I plan to expand my computer science field with chemistry by finishing my Chemistry BS degree off with a concentration in computational
+                            chemistry and quantum computing.
+                            My interests career wise today is software engineering. But I hope in my lifetime, that there is a
+                            commercially available quantum computer that we can program.
                         </p>
+                    </div>
                 </section>
 
+
+
+
+
+
+
                 <section>
-                    <a href = "https://github.com/briancpark" target="blank"><h3>Projects</h3></a> <!-- <h1> -->
-                    <p>
-                        Here are a few projects that I have developed. Some are school projects and some are personal projects.
-                        Clicking on the title will redirect you to my GitHub repo page, or you can click on each project individually.
-                        Note that some school project repos may be private due to some courses reusing the projects for future semesters.
-                        Feel free to reach out through <a href = "mailto:briancpark@berkeley.edu"> email</a> if you are genuinely interested about the project.
-                    </p>
-                    <div id = "projects">
-                        <a href = "proj/Mandelbrot.html">   <img height="500" src="images/projects/MandelMovie.png" alt = "AIGO"/> </a> </br>
-                        <a href = "proj/Assembly.html">     <img height="500" src="images/projects/RISC-V%20Neural%20Network.png" alt = "RISCV"/> </a> </br>
-                        <a href = "proj/Scheme.html">       <img height="500" src="images/projects/Scheme%20Interpreter.png" alt = "Scheme"/> </a> </br>
-                        <a href = "proj/AIGO.html">         <img height="500" src="images/projects/AI%20GO.png" alt = "AIGO"/></a> </br>
-                        <a href = "proj/ProCalc.html">      <img height="500" src="images/projects/CalcPro.png" alt = "Calc Pro"/></a> </br>
-                        <a href = "proj/Maps.html">         <img height="500" src="images/projects/Maps.png" alt = "Maps"/></a> </br>
+                    <a href = "projects.html" target="blank" id ="title_link"><h3>Projects</h3></a>
+
+                    <div class="project-master">
+                        <p class = "proj-desc">
+                            Here are a few projects that I have developed. Some are school projects and some are personal projects.
+                            Clicking on the title will redirect you to my GitHub repo page, or you can click on each project individually.
+                            Note that some school project repos may be private due to some courses reusing the projects for future semesters.
+                            Feel free to reach out through <a href = "mailto:briancpark@berkeley.edu"> email</a> if you are genuinely interested about the project.
+                        </p>
+                        <div class = "proj-array">
+                            <div class = "projects-container">
+                                <a href = "projects.html#MandelMovie"><img class="proj-prof" height="300" src="images/projects/MandelMovie.png" alt = "AIGO"/> </a>
+                                <a href = "projects.html#Assembly"><img class="proj-prof" height="300" src="images/projects/RISC-V%20Neural%20Network.png" alt = "RISCV"/> </a>
+                                <a href = "projects.html#Scheme"><img class="proj-prof" height="300" src="images/projects/Scheme%20Interpreter.png" alt = "Scheme"/> </a>
+                            </div>
+                            <div class = "projects-container">
+                                <a href = "projects.html#AIGO"><img class="proj-prof" height="300" src="images/projects/AI%20GO.png" alt = "AIGO"/></a>
+                                <a href = "projects.html#CalcPro"><img class="proj-prof" height="300" src="images/projects/CalcPro.png" alt = "Calc Pro"/></a>
+                                <a href = "projects.html#Maps"><img class="proj-prof" height="300" src="images/projects/Maps.png" alt = "Maps"/></a>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -94,7 +114,7 @@
                 </section>
 
                 <section>
-                    <a href = "travel.html"><h3>Travel</h3></a>
+                    <a href = "travel.html" id ="title_link"><h3>Travel</h3></a>
                     <p>
                         I like to travel. Click here to learn more about where I have traveled
                     </p>
@@ -104,7 +124,7 @@
                
 
                 <section>
-                    <h3><a href = "MoreAboutMe.html">More About Me</a></h3>
+                    <h3><a href = "MoreAboutMe.html" id ="title_link">More About Me</a></h3>
                     <p>
                         Click to learn more about me. Here is a donate button. Feel free to buy me coffee! It is the fuel to my productivity.
                     </p>
@@ -122,6 +142,14 @@
             </article>
 
         </main>
+
+
+
+
+
+
+
+
         <!--Store all my social media links-->
         <hr/>
         <footer>
@@ -130,9 +158,9 @@
             <a href = "https://www.snapchat.com/add/brianpark518" target=blank> Snapchat</a>
             <a href = "https://www.linkedin.com/in/brianparkberkeley/" target=blank> LinkedIn</a>
             <a href = "https://twitter.com/qkrckddms"> Twitter</a>
-            <a href = "https://www.youtube.com/channel/UCVkrGWIyLMQJCw_8r6wFeYg/featured?sub_confirmation=1">YouTube</a>
+            <a href = "">YouTube</a>
             <a href = "mailto:briancpark@berkeley.edu"> Email</a>
         </footer>
-        <li>&copy; Brian Park</li><li>Made with GitHub Pages</li>
+        <li>&copy; Brian Park 2020</li><li>Made with GitHub Pages</li>
     </body>
 </html>

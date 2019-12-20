@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "Brian Park" content = "An ePortfolio for Brian Park+">
+    <title>Projects</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!--Navigation Bar with links-->
+
+    <header>
+        <div class = "container">
+
+            <h1 class = "title" id="title"><a id="nav_links" href="index.html">Brian Park</a></h1>
+
+            <nav>
+                <ul>
+                    <li><a id="nav_links" href="projects.html">projects</a></li>
+                    <li>academia</li>
+                    <li>creator</li>
+                    <li>more about me</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--Navigation Bar with links-->
+
+
+    <main>
+        <h6><a href = "https://github.com/briancpark" id ="title_link">Projects</a></h6>
+        You can click on the title of each project's name to redirect you to the GitHub repository of the project or the project's website itself.
+        If the title is not clickable, that means the repository is private. Some school projects need to be private because they are reused every semester.
+        You can email me to request code for private projects if it is for recruiting purposes. Some personal projects are never left finished, simply because
+        I still have lots to learn and more algorithms and libraries I want to implement. You are free to email me if you have personal input or suggestions!
+        
+        <section>
+            <h3><a href="https://github.com/briancpark/Mandelbrot-Movie" id ="title_link" id = "MandelMovie">Mandelbrot Movie</a></h3>
+            <iframe width="360" height="360" src="https://www.youtube.com/embed/KH254lsViak" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>
+                This is a project developed in C (C99 Programming Language Standard) to calculate and visualize the <a href ="https://en.wikipedia.org/wiki/Mandelbrot_set" target="blank">Mandelbrot Set</a>
+                The main function behind this project is motivated by the Mandelbrot function,
+                M(Z, C) = Z^2 + C. Where Z is the center and C is a constant and Z is an iteration variable.
+                We are interested in how many times Z can iterate, and we set a maximum iteration value because some
+                functions can iterate indefinitely. M and C can both be imaginary numbers. The program also deals with
+                how colors are represented when plotting the Mandelbrot function on a canvas.
+                We use the P6 color pallete where each unique color corresponds to a unique iteration value
+                that is moduloed to a set number.
+            </p>
+        </section>
+
+        <section>
+            <a id = "Assembly"><h3>MNIST Neural Network in RISC-V</h3></a>
+            <iframe src='https://gfycat.com/ifr/AffectionateMemorableGreyhounddog' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe><p> <a href="https://gfycat.com/affectionatememorablegreyhounddog-artificial-intelligence-neural-networks"></a></p>
+            <p>
+                A digit classifier written completely in RISC-V ISA. All matrix operations were written in the ISA. This was a school project 
+                for UC Berkeley's CS 61C: Machine Structures. This project is special as RISC-V was developed in UC Berkeley and do develop this project in the birthplace of RISC-V is an honor.
+                The full spec for the project can be found <a href="https://cs61c.org/projects/proj2/" target="blank">here</a>.
+                The project is a simple implementation of the MNIST neural networks. Compared to coding machine learning applications in Python with libraries
+                such as TensorFlow, this definitely got my hands dirty with assembly and neural networks.
+            </p>
+            <p>
+                Animation credits: @msvanjie
+            </p>
+        </section>
+
+        <section>
+            <a id = "Scheme"><h3>Scheme Interpreter</h3></a>
+            <p>
+                This is a project developed in Python. This was the final project for UC Berkeley's CS 61A, which is an introductory course to programming for Computer Science majors.
+                The full spec written for the project can be found <a href="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/scheme/" target="blank">here</a>. The project runs a REPL environment of <a hred = "https://en.wikipedia.org/wiki/Scheme_(programming_language)">Scheme</a>
+                in the Python shell, complete with all Scheme functions and properties. It even throws exception when it detects errors and displays the error type. The project exercises all the fundamentals learned from this course such as object oriented programming, list comprehension,
+                linked lists, and more. An interactive online version can be found
+                <a href = "https://code.cs61a.org/scheme">here</a> made by the staff of this course.
+            </p>
+        </section>
+
+        <section>
+            <h3>RISC-V CPU</h3>
+            <p>
+                A simulation of a single cycle RISC-V CPU created using logic circuits in <a href="http://www.cburch.com/logisim/">Logisim</a>. The CPU has 8 registers and has modern architecture and datapath such as pipelining.
+                RISC-V assembly code can be loaded in and the simulated CPU can output results. This was the final project of CS 61C: Machine Structures and the full spec of the project can be found
+                <a href = "https://cs61c.org/projects/proj3-1/proj3-1/" target="blank">here (Part 1)</a> and <a href = "https://cs61c.org/projects/proj3-2/proj3-2/" target="blank">here (Part 2)</a>.
+            </p>
+        </section>
+
+        <section>
+            <a id = "AIGO"><h3>AI GO</h3></a>
+            <p>
+                This project is a personal side project written in Java, meant to apply all my knowledge in computer science. It is in development and there are always new modifications or features added when I learn something new. So far,
+                my knowledge in object oriented programming, data structures, and algorithms to make the backend of the ancient Chinese game of Go. Deeply inspired by AlphaGo, I soon want to implement artificial intelligent features once I finish my Introduction to Artificial Intelligence and Machine Learning courses. Data structures
+                such as game trees are too inefficient and impractical for a traditional computer to compute. Once I understand how techniques like deep learning work, I hope to implement it to this game.
+                For now, it is a playable game showing statistics of territories and possible moves. I soon plan to also implement player to player functionality and an iOS or Android app. If you have some input or questions, feel free to email me!
+            </p>
+        </section>
+
+        <section>
+            <a id = "CalcPro"><h3>Pro Calculator</h3></a>
+            <p>
+                Go pro today. A calculator for programmers. Inspired by the built in programming calculator in MacOS, I brought
+                all functions that a programmer needs such as converting between binary, decimal, and hexadecimal numbers, shift operators, logic gate operations, and much more!
+                Written in XCode for iOS and Java/Android Studio for Android devices. Or alternatively click the title to direct you to the App's launchsite.
+                If you are affiliated with UC Berkeley, you can upgrade the app for free! Just email me.
+            </p>
+        </section>
+
+        <section>
+            <a id = "Maps"><h3>Yelp Maps</h3></a>
+            <p>
+                A project developed in Python. It is a small replica of Yelp review ratings and has visualization features using machine learning. It makes use of the Yelp academic dataset. This was the second project
+                for UC Berkeley's CS 61A and the full spec of this project can be found <a href="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/maps/" target="blank">here</a>. It uses list comprehensions to process data
+                of restaurant at UC Berkeley. The map coloring that is outputted from this project is the Voronoi diagram.
+            </p>
+        </section>
+
+        <section>
+            <h3><a href = "proj/TeachableMachine/googleteach.html" id ="title_link">AI PT (with Google's Teachable Machine)</a></h3>
+            <p>
+                I started losing weight and getting fit with a personal trainer. Having a personal trainer when exercising definitely helps because he/she motivates you. But after
+                my gym membership ended, I had to exercise by myself. I found that hard to do. So I used Google's Teachable Machine version 2.0 to create my own free personal trainer.
+            </p>
+            <p>
+                I trained models that correctly determine if a posture for an exercise is correct or incorrect. Programmed with voice feedback, the AI trainer counts and confirms
+                that you are exercising correctly. I've included negative voice feedback for correction or slow pace and positive voice feedback for motivation.
+                It is currently a prototype, and purely a demo to test out Google's machine learning model. You can try the prototype yourself using your webcam!
+            </p>    
+        </section>
+
+        <section>
+            <h3><a href = "proj/snake/snake.html" id ="title_link">AI Snake</a></h3>
+            <p>
+                Snake game written in JavaScript using the P5 library. I've implemented artificial intelligent features and used neural networks to make the computer learn how to win snake from
+                zero knowledge. The backend of the snake and code was provided by The Coding Train. Artificial intelligence was coded by myself with the help of the P5 Machine Learning Library with JavaScript.
+                Click to play or interactively watch how the AI bot learns how to play snake!
+            </p>
+        </section>
+        
+        <section>
+            <h3>Gitlet</h3>
+            <p>
+                A replica of git made in Java. This was a school project fro UC Berkeley's CS 61B: Data Structures and Algorithm course.
+            </p>
+        </section>
+
+        <section>
+            <h3>BearMaps</h3>
+            <p>
+                Map using data structures and algorithms. And search algorithms
+            </p>
+        </section>
+
+        <section>
+            <h3>Enigma</h3>
+            <p>
+                A replica of the engima machine that was used in World War II to decrypt messages. This was a school project for UC Berkeley's CS 61B: Data Structures and Algorithm course.
+            </p>
+        </section>
+
+
+    </main>
+
+</body>
+</html>

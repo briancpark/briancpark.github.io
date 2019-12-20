@@ -3,11 +3,17 @@ Import fonts here
 @import url('');
  */
 
+main {
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
 body {
     font-family: 'Helvetica Neue', sans-serif;
     background-color: black;
     color: white;
-    font-size: 20px;
+    font-size: 150%;
 }
 
 /*Formatting for the navigation bar*/
@@ -26,7 +32,7 @@ header {
 header::after {
     content: '';
     display: table;
-    clear: both;
+    clear: both
 }
 
 .title {
@@ -54,7 +60,7 @@ nav ul {
 nav li {
     display: inline-block;
     margin-right: 70px;
-    padding-top: 40px;
+    padding-top: 55px;
     color: #707070;
 }
 
@@ -63,6 +69,11 @@ nav li:hover {
     margin-right: 70px;
     padding-top: 40px;
     color: #ffffff;
+}
+
+#nav_links {
+    color: inherit;
+    text-decoration: none;
 }
 
 h3 {
@@ -75,6 +86,17 @@ ul {
     padding: 0;
 }
 
+#title_link {
+    color: inherit;
+    text-decoration: none;
+}
+
+#title_link:hover {
+    color: green;
+
+}
+
+
 
 
 
@@ -82,154 +104,49 @@ ul {
 
 
 /*Formatting for introduction section*/
-#profile-pic {
-    float: left;
-}
 
 #about-me {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
 }
 
+#profile-pic {
+    justify-content: center;
+    padding: 50px;
+
+}
+
+#introduction {
+    padding: 50px;
+}
 
 
+/* Formatting for Projects*/
 
+h6 {
+    font-family: 'Courier New', sans-serif;
+    font-size: 3.0em;
+}
 
-#projects {
+.proj-prof {
+    padding: 20px;
+}
+
+.projects-container{
     display: flex;
-    flex-wrap: wrap;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-title {
-    margin: 0;
-    //backdrop: ;
-    font-family: 'Menlo', sans-serif;
+.proj-array {
+    display: flex;
+    flex-direction: column;
 }
 
-body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: black;
-    color: white;
-    font-size: 20px;
+.project-master{
+    display: flex;
+    flex-direction: row;
 }
 
-p, blockquote {
-    font-size: .9em;
-
-
-    margin-right: 50px;
-    margin-left: 50px;
-    //line-height: 1.6em; //line spacing
-}
-/*
-ul {
-    list-style-type: none;
-    margin:0; //outside of an element
-    padding: 0; //inside of an element //left, right, 0
-}
-*/
-
-
-/*
-
-.container {
-
-&__image {
-
-     float: left;
- }
-&__text {
-     display: inline;
-    float: right;
- }
-}
-
-.container{
-    position: relative;
-    float: right;
-}
-
-
-
-.nav_bar {
-    font-family: 'Courier New', sans-serif;
-    font-size: 2.5em;
+.proj-desc {
 
 }
-
-ul#horizontal-list {
-    min-width: 696px;
-    list-style: none;
-    padding-top: 20px;
-}
-ul#horizontal-list li {
-    display: inline;
-}
-
-.motto {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 1.5em;
-    text-align: center;
-}
-
-.logo {
-    //Put style attributes here
-}
-
-
-h2 {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 2em;
-    text-align77: center;
-}
-
-.name {
-    text-align: center;
-    font-size: 1.2em;
-    font-family: 'Courier New', sans-serif;
-    padding: .9em; //top, right, bottom, left (clockwise);
-}
-
-
-.profile {
-    text-align: right;
-}
-
-
-//Image aligner
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-}
-
-
-
-.footer {
-    background-color: #F1F1F1;
-    text-align: center;
-    padding: 10px;
-}
-
-*/
