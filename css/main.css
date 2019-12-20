@@ -150,3 +150,8 @@ h6 {
 .proj-desc {
 
 }
+
+.scheme-logo {
+    filter: invert(1);
+}
+

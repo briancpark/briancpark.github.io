@@ -32,7 +32,7 @@
         You can click on the title of each project's name to redirect you to the GitHub repository of the project or the project's website itself.
         If the title is not clickable, that means the repository is private. Some school projects need to be private because they are reused every semester.
         You can email me to request code for private projects if it is for recruiting purposes. Some personal projects are never left finished, simply because
-        I still have lots to learn and more algorithms and libraries I want to implement. You are free to email me if you have personal input or suggestions!
+        I still have lots to learn and more algorithms and libraries I want to implement! You are free to email me if you have personal input or suggestions!
         
         <section>
             <h3><a href="https://github.com/briancpark/Mandelbrot-Movie" id ="title_link" id = "MandelMovie">Mandelbrot Movie</a></h3>
@@ -54,10 +54,11 @@
             <iframe src='https://gfycat.com/ifr/AffectionateMemorableGreyhounddog' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe><p> <a href="https://gfycat.com/affectionatememorablegreyhounddog-artificial-intelligence-neural-networks"></a></p>
             <p>
                 A digit classifier written completely in RISC-V ISA. All matrix operations were written in the ISA. This was a school project 
-                for UC Berkeley's CS 61C: Machine Structures. This project is special as RISC-V was developed in UC Berkeley and do develop this project in the birthplace of RISC-V is an honor.
-                The full spec for the project can be found <a href="https://cs61c.org/projects/proj2/" target="blank">here</a>.
-                The project is a simple implementation of the MNIST neural networks. Compared to coding machine learning applications in Python with libraries
-                such as TensorFlow, this definitely got my hands dirty with assembly and neural networks.
+                for UC Berkeley's CS 61C: Machine Structures. This project is special as RISC-V was developed in UC Berkeley and to develop this project in the birthplace of RISC-V is an honor.
+                The full specification of the project for this course can be found <a href="https://cs61c.org/projects/proj2/" target="blank">here</a>.
+                The project is a barebone implementation of the MNIST neural networks. Compared to coding machine learning applications in Python with libraries
+                such as TensorFlow, this definitely got my hands dirty with assembly and neural networks. Operations include vector inner product, matrix multiplications, and thresholding. The simple
+                neural network consists of input matrix, a hidden layer, and output neurons. The MNIST dataset can be loaded to train and improve the model, thus putting our own inputs.
             </p>
             <p>
                 Animation credits: @msvanjie
@@ -66,12 +67,13 @@
 
         <section>
             <a id = "Scheme"><h3>Scheme Interpreter</h3></a>
+            <img class="scheme-logo" src="images/projects/scheme-logo.png">
             <p>
-                This is a project developed in Python. This was the final project for UC Berkeley's CS 61A, which is an introductory course to programming for Computer Science majors.
+                This is a project developed in Python. This was the final project for UC Berkeley's CS 61A: Structure and Interpretation of Computer Programs, which is an introductory programming course for Computer Science majors.
                 The full spec written for the project can be found <a href="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/scheme/" target="blank">here</a>. The project runs a REPL environment of <a hred = "https://en.wikipedia.org/wiki/Scheme_(programming_language)">Scheme</a>
-                in the Python shell, complete with all Scheme functions and properties. It even throws exception when it detects errors and displays the error type. The project exercises all the fundamentals learned from this course such as object oriented programming, list comprehension,
-                linked lists, and more. An interactive online version can be found
-                <a href = "https://code.cs61a.org/scheme">here</a> made by the staff of this course.
+                in the Python shell, complete with all Scheme functions and properties, much similar to <a href="https://www.gnu.org/software/mit-scheme/">MIT/GNU Scheme</a>. It even throws exceptions when it detects errors and displays the error type. The project exercises all the fundamentals learned from this course such as object oriented programming, list comprehension,
+                linked lists, and more. An interactive online version can be found <a href = "https://code.cs61a.org/scheme">here</a> made by the staff of this course. Overall, it was fun to make a programming language
+                run another programming language.
             </p>
         </section>
 
@@ -79,7 +81,7 @@
             <h3>RISC-V CPU</h3>
             <img src="images/projects/risc-v-logo.png">
             <p>
-                A simulation of a single cycle RISC-V CPU created using logic circuits in <a href="http://www.cburch.com/logisim/">Logisim</a>. The CPU has 8 registers and has modern architecture and datapath such as pipelining.
+                A simulation of a single cycle RISC-V CPU created using logic circuits in <a href="https://www.cburch.com/logisim/">Logisim</a>. The CPU has 8 registers and has modern architecture and datapath such as pipelining.
                 RISC-V assembly code can be loaded in and the simulated CPU can output results. This was the final project of CS 61C: Machine Structures and the full spec of the project can be found
                 <a href = "https://cs61c.org/projects/proj3-1/proj3-1/" target="blank">here (Part 1)</a> and <a href = "https://cs61c.org/projects/proj3-2/proj3-2/" target="blank">here (Part 2)</a>.
             </p>
@@ -129,7 +131,6 @@
             </p>    
         </section>
 
-        <!--
         <section>
             <h3><a href = "proj/snake/snake.html" id ="title_link">AI Snake</a></h3>
             <p>
@@ -138,7 +139,6 @@
                 Click to play or interactively watch how the AI bot learns how to play snake!
             </p>
         </section>
-        -->
         
         <section>
             <h3>Gitlet</h3>
@@ -158,6 +158,15 @@
             <h3>Enigma</h3>
             <p>
                 A replica of the engima machine that was used in World War II to decrypt messages. This was a school project for UC Berkeley's CS 61B: Data Structures and Algorithm course.
+            </p>
+        </section>
+
+        <section>
+            <h3>TwitBot</h3>
+            <p>
+                A tiny powerful Twitter bot written in Python. It uses the Tweepy library,
+                bridging the connection with the Twitter API and Python. I've built a user interface
+                that utilizes the power of automation.
             </p>
         </section>
 
