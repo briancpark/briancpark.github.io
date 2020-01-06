@@ -1,12 +1,10 @@
-/*
-Import fonts here
-@import url('');
- */
+@import url('https://fonts.googleapis.com/css?family=Public+Sans&display=swap');
+
 
 main {
     margin-top: 100px;
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 body {
@@ -42,7 +40,7 @@ header::after {
 }
 
 #title:hover {
-    color: green;
+    color: blue;
 }
 
 nav {
@@ -93,14 +91,16 @@ ul {
 
 #title_link:hover {
     color: green;
-
+    text-decoration: none;
 }
 
 
 
 
 
+#Assembly {
 
+}
 
 
 /*Formatting for introduction section*/
@@ -112,13 +112,19 @@ ul {
 }
 
 #profile-pic {
-    justify-content: center;
-    padding: 50px;
+    /*justify-content: center;*/
+    padding: 1em;
 
 }
 
 #introduction {
-    padding: 50px;
+    padding: 1em;
+}
+
+
+#academia a{
+    color: inherit;
+    text-decoration: none;
 }
 
 
@@ -155,3 +161,7 @@ h6 {
     filter: invert(1);
 }
 
+.motto {
+    font-family: 'Public Sans', sans-serif;
+    font-size: small;
+}
