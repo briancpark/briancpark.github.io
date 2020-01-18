@@ -53,7 +53,7 @@ nav ul {
 }
 
 nav ul li a {
-     color: #707070;
+    color: #707070;
 }
 
 nav ul li a:hover{
@@ -165,4 +165,37 @@ iframe {
 .motto {
     font-family: 'Public Sans', sans-serif;
     font-size: small;
+}
+
+
+
+
+
+
+/* Styling for Footer and Social Media Links */
+
+footer {
+    padding: 1.5em;
+    background: #323232;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 10px;
+}
+
+footer ul li {
+    display: inline;
+    padding: 5px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+footer ul li a img {
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
