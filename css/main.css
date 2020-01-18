@@ -4,11 +4,19 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: black;
     font-family: 'Helvetica Neue', sans-serif;
     color: white;
     font-size: 1em;
+}
+
+p {
+    padding-bottom: 1em;
 }
 
 main {
@@ -167,13 +175,10 @@ iframe {
     font-size: small;
 }
 
-
 form {
     text-align: center;
     padding: 1em;
 }
-
-
 
 /* Styling for Footer and Social Media Links */
 
@@ -196,9 +201,4 @@ footer ul li {
 footer ul li a {
     text-decoration: none;
     color: inherit;
-}
-
-footer ul li a img {
-    -webkit-filter: invert(1);
-    filter: invert(1);
 }
