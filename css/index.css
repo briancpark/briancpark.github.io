@@ -54,6 +54,28 @@ section h1 {
     z-index: -1;
 }
 
+#projects {
+    width: width;
+    height: height;
+    display: block;
+    position: relative;
+}
+
+#projects::after {
+    content: "";
+    background: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
 #academia {
     width: width;
     height: height;
