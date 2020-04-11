@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name = "Brian Park" content = "An ePortfolio for Brian Park+">
     <title>About</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/navbar.css"/>
+    <link rel="stylesheet" href="css/academia.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 </head>
 
@@ -14,9 +18,9 @@
             <h4><a href="index.html">Brian Park</a></h4>
         </div>
         <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="academia.html">Academia</a></li>
-            <li><a href="about.html">About</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -26,42 +30,48 @@
     </nav>
     <script src="js/navigation.js"></script>
 
-            <h3>Academia</h3>
-            <p>
-                Here is a list of all the core courses I have taken so far at UC Berkeley. Here is a link to my <a href = "">resume</a>
-                if you are interested in recruiting me.
-            </p>
-            <ul>
-                <li><a href = "https://cs61a.org" target="blank">Computer Science 61A</a>: Structure and Interpretation of Computer Programs</li>
-                <li><a href = "https://cs61bl.org" target="blank">Computer Science 61BL</a>: Data Structures and Programming Methodology</li>
-                <!--
-                <li><a href = "https://cs61c.org" target="blank">Computer Science 61C</a>: Great Ideas in Computer Architecture (Machine Structures)</li>
-                -->
-                <li><a href = "https://www.eecs70.org" target="blank">Computer Science 70</a>: Discrete Mathematics and Probability Theory</li>
-                <!--
-                <li><a href = "https://www.cs170.org" target="blank">Computer Science 170</a>: Efficient Algorithms and Intractable Problems</li>
-                <li><a href = "https://cs186berkeley.net/" target="blank">Computer Science W186</a>: Introduction to Database Systems</li>
-                <li><a href = "https://inst.eecs.berkeley.edu/~cs188/sp20/" target="blank">Computer Science 188</a>: Introduction to Artificial Intelligence</li>
-                <li><a href = "https://people.eecs.berkeley.edu/~jrs/189/" target="blank">Computer Science 189</a>: Introduction to Machine Learning</li>
-                <li><a href = "http://www.ds100.org" target="blank">Data Science 100</a>: Principles and Techniques of Data Science</li>
-                <li>Chemistry/Computer Science C191: Quantum Information Science and Technology</li>
-                -->
-                <li>Chemistry 4AB: Advanced General Chemistry and Quantitative Analysis I and II</li>
-                <li>Chemistry 12AB: Advanced Organic Chemistry I and II</li>
-                <!--
-                <li>Chemistry 104AB: Advanced Inorganic Chemistry</li>
-                <li>Chemistry 105: Instrumental Methods in Analytical Chemistry</li>
-                <li>Chemistry 120AB: Quantum and Statistical Chemistry</li>
-                <li>Chemistry 121: Introduction to Computational Chemistry</li>
-                <li>Chemistry 125: Physical Chemistry Lab</li>
-                -->
-                <li>Chemical Engineering 140: Introduction to Chemical Process Analysis</li>
-                <li><a href="https://math.berkeley.edu/~reshetik/index1b-17-Fall.html" target = "blank">Mathematics 1B</a>: Calculus II</li>
-                <li><a href="https://math.berkeley.edu/~hutching/teach/53videos.html" target = "blank">Mathematics 53</a>: Multivariable Calculus </li>
-                <li><a href="https://math.berkeley.edu/~apaulin/54_002(Spring2018).html" target = "blank">Mathematics 54</a>: Linear Algebra and Differential Equations</li>
-                <li>Physics 7AB: Physics for Scientists and Engineers I and II</li>
-            </ul>
-
+    <h3>Academia</h3>
+    <p>
+        Here is a list of all the core courses I have taken so far or currently taking at UC Berkeley.
+    </p>
+    <div id="coursework">
+        <ul>
+            <li><a href = "https://cs61a.org" target="blank">Computer Science 61A</a>: Structure and Interpretation of Computer Programs</li>
+            <li><a href = "https://cs61bl.org" target="blank">Computer Science 61BL</a>: Data Structures and Programming Methodology</li>
+            <!--
+            <li><a href = "https://cs61c.org" target="blank">Computer Science 61C</a>: Great Ideas in Computer Architecture (Machine Structures)</li>
+            -->
+            <li><a href = "https://www.eecs70.org" target="blank">Computer Science 70</a>: Discrete Mathematics and Probability Theory</li>
+            <!--
+            <li><a href = "https://www.cs170.org" target="blank">Computer Science 170</a>: Efficient Algorithms and Intractable Problems</li>
+            <li><a href = "https://cs186berkeley.net/" target="blank">Computer Science W186</a>: Introduction to Database Systems</li>
+            <li><a href = "https://inst.eecs.berkeley.edu/~cs188/sp20/" target="blank">Computer Science 188</a>: Introduction to Artificial Intelligence</li>
+            <li><a href = "https://people.eecs.berkeley.edu/~jrs/189/" target="blank">Computer Science 189</a>: Introduction to Machine Learning</li>
+            <li><a href = "http://www.ds100.org" target="blank">Data Science 100</a>: Principles and Techniques of Data Science</li>
+            <li>Chemistry/Computer Science C191: Quantum Information Science and Technology</li>
+            -->
+            <li>Chemistry 4AB: Advanced General Chemistry and Quantitative Analysis I and II</li>
+            <li>Chemistry 12AB: Advanced Organic Chemistry I and II</li>
+            <!--
+            <li>Chemistry 104AB: Advanced Inorganic Chemistry</li>
+            <li>Chemistry 105: Instrumental Methods in Analytical Chemistry</li>
+            <li>Chemistry 120AB: Quantum and Statistical Chemistry</li>
+            <li>Chemistry 121: Introduction to Computational Chemistry</li>
+            <li>Chemistry 125: Physical Chemistry Lab</li>
+            -->
+            <li>Chemical Engineering 140: Introduction to Chemical Process Analysis</li>
+            <li><a href="https://math.berkeley.edu/~reshetik/index1b-17-Fall.html" target = "blank">Mathematics 1B</a>: Calculus II</li>
+            <li><a href="https://math.berkeley.edu/~hutching/teach/53videos.html" target = "blank">Mathematics 53</a>: Multivariable Calculus </li>
+            <li><a href="https://math.berkeley.edu/~apaulin/54_002(Spring2018).html" target = "blank">Mathematics 54</a>: Linear Algebra and Differential Equations</li>
+            <li>Physics 7AB: Physics for Scientists and Engineers I and II</li>
+        </ul>
+    </div>
+    <p>
+        Although my coursework as UC Berkeley may be representative of my knowledge, I have also self-studied many
+        programming languages and computer science topics. Fields that I self-studied include quantum computing and web
+        development. You can get a glimpse of my self studies through my projects (in fact, your looking at an
+        application of my web development right now!).
+    </p>
 
     <!-- Footer -->
     <footer>

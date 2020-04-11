@@ -76,10 +76,6 @@ section h1 {
     z-index: -1;
 }
 
-h1 {
-    font-family: 'Roboto', sans-serif;
-}
-
 h1 a {
     text-decoration: none;
     color: white;
@@ -89,5 +85,4 @@ p {
     padding: 3em;
     font-size: 1.5em;
     width: 100%;
-    font-family: 'Roboto', sans-serif;
 }
