@@ -9,3 +9,16 @@ body {
     color: white;
     font-family: 'Roboto', sans-serif;
 }
+
+h6 {
+    padding-top: 2.5em;
+    padding-bottom: 1em;
+    text-align: center;
+    font-size: 4em;
+}
+
+p {
+    font-size: 1.5em;
+    padding: 1em;
+    color: white;
+}
