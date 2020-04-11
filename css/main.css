@@ -4,182 +4,166 @@
     box-sizing: border-box;
 }
 
-html {
-    height: 100%;
+/* Nav bar */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #323232;
+    font-family: "Poppins", sans-serif;
 }
+
+nav h4 a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: #707070;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #323232;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+
+
+/*ScrollMagic and front Page css */
 
 body {
     background-color: black;
-    font-family: 'Helvetica Neue', sans-serif;
-    color: white;
-    font-size: 1em;
 }
 
-p {
-    padding-bottom: 1em;
+.intro {
+    height: 100vh;
 }
 
-main {
-    margin: 1em;
+.intro video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-header {
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
-    position: sticky;
-    top: 0px;
-    background: #323232;
-}
-
-header h1 a {
-    font-size: 2em;
-}
-
-header h1 a:hover {
-    color: blue;
-    font-size: 2em;
-}
-
-nav {
-    min-height: 10vh;
-    margin: auto;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-nav h1, nav ul {
-    font-size: 1.5rem;
-    flex: 1;
-    font-family: 'Courier New', sans-serif;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-}
-
-nav ul li a {
-    color: #707070;
-}
-
-nav ul li a:hover{
+.intro h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
     color: white;
 }
 
-
-nav a {
+section {
+    height: 100vh;
     color: white;
-    text-decoration: none;
 }
 
-scheme-logo {
-    -webkit-filter: invert(1);
-    filter: invert(1);
-}
-
-
-h3 {
-    margin-top: 1em;
-    font-family: 'Courier New', sans-serif;
-    font-size: 2.5em;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#title_link {
-    color: inherit;
-    text-decoration: none;
-}
-
-#title_link:hover {
-    color: #01FF70;
-    text-decoration: none;
-}
-
-#Assembly {
-
-}
-
-
-/*Formatting for introduction section*/
-
-#about-me {
-    display: flex;
-    flex-direction: row;
-
-}
-
-#profile-pic {
-    /*justify-content: center;*/
-    padding: 1em;
-
-}
-
-#introduction {
-    padding: 1em;
-}
-
-
-#academia a{
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* Formatting for Projects*/
-
-h6 {
-    font-family: 'Courier New', sans-serif;
-    font-size: 3.5em;
+section h1 {
+    padding-top: 300px;
     text-align: center;
-}
-
-iframe {
-    display: block;
-    align-content: center;
-}
-
-.proj-prof {
-    padding: 20px;
-}
-
-.projects-container{
-    display: flex;
-}
-
-.proj-array {
-    display: flex;
-    flex-direction: column;
-}
-
-.project-master{
-    display: flex;
-    flex-direction: row;
-}
-
-.proj-desc {
-
+    font-size: 80px;
 }
 
 
-.scheme-logo {
-    filter: invert(1);
-}
 
-.motto {
-    font-family: 'Public Sans', sans-serif;
-    font-size: small;
-}
 
-form {
-    text-align: center;
-    padding: 1em;
-}
 
 /* Styling for Footer and Social Media Links */
 
@@ -197,9 +181,10 @@ footer ul {
 footer ul li {
     display: inline;
     padding: 5px;
+    color: white;
+    font-family: sans-serif;
 }
 
 footer ul li a {
     text-decoration: none;
-    color: inherit;
 }
