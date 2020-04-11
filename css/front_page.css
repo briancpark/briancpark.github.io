@@ -1,0 +1,93 @@
+body {
+    background-color: black;
+}
+
+.intro {
+    height: 100vh;
+}
+
+.intro video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.intro h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: white;
+}
+
+section {
+    height: 100vh;
+    color: white;
+}
+
+section h1 {
+    padding-top: 300px;
+    text-align: center;
+    font-size: 80px;
+}
+
+#about {
+    width: width;
+    height: height;
+    display: block;
+    position: relative;
+}
+
+#about::after {
+    content: "";
+    background: url("../images/about_me.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#academia {
+    width: width;
+    height: height;
+    display: block;
+    position: relative;
+}
+
+#academia::after {
+    content: "";
+    background: url("../images/academia.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 a {
+    text-decoration: none;
+    color: white;
+}
+
+p {
+    padding: 3em;
+    font-size: 1.5em;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
