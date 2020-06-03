@@ -28,9 +28,10 @@ function generateThought() {
         var todayDate = new Date();
         var time = todayDate.getTime() - daySinceFirstCode.getTime();
         var days = Math.floor(time / (1000 * 3600 * 24));
-        return "Coded For " + days + " Days Straight";
+        document.write("Coded For " + days + " Days Straight");
     } else {
-        return thoughts[index];
+        document.write(thoughts[index]);
     }
 }
 
+generateThought()
