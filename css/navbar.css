@@ -75,6 +75,7 @@ nav h4 a {
         width: 50%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
+        z-index: 1; /*fixed?*/
     }
 
     .nav-links li {
