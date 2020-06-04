@@ -67,7 +67,7 @@ nav h4 a {
         position: fixed;
         right: 0px;
         height: 92vh;
-        top: 8vh;
+        top: 6vh; /* 8*/
         background-color: #323232;
         display: flex;
         flex-direction: column;
