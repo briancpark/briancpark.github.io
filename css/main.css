@@ -8,17 +8,21 @@ body {
     background: black;
     color: white;
     font-family: 'Roboto', sans-serif;
+    margin-top: 8vh;
 }
 
 h6 {
-    padding-top: 2.5em;
-    padding-bottom: 1em;
+    margin: 1.7em;
+    margin-bottom: 0.5em;
     text-align: center;
     font-size: 4em;
 }
 
 p {
     font-size: 1.5em;
-    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
     color: white;
 }
+
+

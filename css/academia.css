@@ -1,0 +1,23 @@
+#coursework ul {
+    padding: 2em;
+    list-style-type: none;
+}
+
+#coursework ul li {
+    color: white;
+    font-size: 1.5em;
+}
+
+#coursework ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+#timelapse {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
