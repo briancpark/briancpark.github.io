@@ -13,16 +13,33 @@ h3 {
     font-size: 3em;
 }
 
-/*
-section {
-    height: 100vh;
-    color: white;
+.image {
+    width:55%;
+    margin-right:2%;
+    float: left;
 }
 
-section h1 {
-    padding-top: 300px;
-    text-align: center;
-    font-size: 80px;
+#pic {
+    width:100%;
+    overflow: hidden;
 }
 
- */
+.paragraph {
+    width:42%;
+    float: left;
+}
+
+.clearfix{
+    clear:both
+}
+
+.buttons {
+    width: 10vw;
+    margin: 0 auto;
+}
+
+.action_btn {
+    display: inline-block;
+    width: calc(50% - 4px);
+    margin: 0 auto;
+}
