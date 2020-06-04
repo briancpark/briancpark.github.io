@@ -1,18 +1,12 @@
-/*section {
-    height: 100vh;
-    color: white;
-}
-
-section h1 {
-    padding-top: 300px;
+p {
+    justify-content: center;
     text-align: center;
-    font-size: 80px;
+    vertical-align: center;
 }
 
- */
-
-
-
-img {
-
+h1 {
+    margin: 1.7em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: 4em;
 }

@@ -39,237 +39,219 @@
         </nav>
         <script src="js/navigation.js"></script>
         <!--Dynamic Nav Bar-->
-
-            <main>
-                <h6><a href="https://github.com/briancpark">Projects</a></h6>
+        <main>
+            <h6><a href="https://github.com/briancpark">Projects</a></h6>
+            <p>
+                You can click on the title of each project's name to redirect you to the GitHub repository of the
+                project or the project's website itself. Some personal projects are never left finished, simply because
+                I still have lots to learn and more algorithms, libraries, and APIs I want to implement! You are free to
+                email me if you have personal input or suggestions!
+            </p>
+            <section>
+                <h3><a href="https://github.com/briancpark/COVID-19-Visualizations">COVID-19 Visualizations with Data Science and Machine Learning</a></h3>
+                <img src="https://github.com/briancpark/COVID-19-Visualizations/raw/master/timelapses/us_confirmed_timelapse.gif" style="width:50%;height:50%;">
                 <p>
-                    You can click on the title of each project's name to redirect you to the GitHub repository of the
-                    project or the project's website itself. Some personal projects are never left finished, simply because
-                    I still have lots to learn and more algorithms, libraries, and APIs I want to implement! You are free to
-                    email me if you have personal input or suggestions!
+                    Visualizations of the novel coronavirus with Python. Used data science and machine libraries such as
+                    Pandas, GeoPandas, NumPy, and MatPlotLib.
                 </p>
+            </section>
+            <!--
+            <section>
+                <h3><a href="https://github.com/jjkaufman/SwiftProcessing">Swift Processing</a></h3>
+                <p>
+                    Contributed to an open-source library that implements Processing to the Swift programming language.
+                </p>
+            </section>
+            -->
+            <section>
+                <h3><a href="https://github.com/briancpark/Maps">Yelp Maps</a></h3>
+                <img height="300" src="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/maps/visualize/voronoi.png">
+                <p>
+                    A project developed in Python. It is a small replica of Yelp review ratings and has visualization
+                    features using machine learning. It makes use of the Yelp academic dataset. This was the second project
+                    for <a href="https://cs61a.org/" target="blank">UC Berkeley's CS 61A: Structure and Interpretation of Computer Programs</a>
+                    and the full spec of this project can be found
+                    <a href="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/maps/" target="blank">here</a>. It uses list
+                    comprehensions to process data of restaurant at UC Berkeley. The map coloring that is outputted from
+                    this project is the Voronoi diagram.
+                </p>
+            </section>
+            <!--
+            <section>
+                <h3><a href="https://github.com/briancpark/Mandelbrot-Movie" id ="title_link" id = "MandelMovie">Mandelbrot Movie</a></h3>
+                <video width="320" height="320" autoplay controls>
+                    <source src="media/mandel.mp4" type="video/mp4">
+                </video>
+                <p>
+                    This is a project developed in C (C99 Programming Language Standard) to calculate and visualize the
+                    <a href ="https://en.wikipedia.org/wiki/Mandelbrot_set" target="blank">Mandelbrot Set</a>. The main
+                    function behind this project is motivated by the Mandelbrot function, M(Z, C) = Z^2 + C. Where Z is the
+                    center, C is a constant, and Z is an iteration variable. We are interested in how many times Z can
+                    iterate, and we set a maximum iteration value because some functions can iterate indefinitely. M and C
+                    can both be imaginary numbers. The program also deals with how colors are represented when plotting the
+                    Mandelbrot function on a canvas. We use the P6 color pallete where each unique color corresponds to a
+                    unique iteration value that is modulated to a set number. To accelerate the number of for loops in the
+                    code, parallel programming was implemented to optimize the computation across the cores of the CPU.
+                </p>
+                <p>
+                    The video is my own fractal zoom calculated at (0.37280535024, -0.2551419600000041) with 1750 maximum
+                    iterations.
+                </p>
+            </section>
+            -->
+            <section>
+                <a id = "Scheme"><h3>Scheme Interpreter</h3></a>
+                <img id="scheme-logo" height="200"src="images/projects/scheme-logo.png">
+                <p>
+                    This is a project developed in Python. This was the final project for
+                    <a href="https://cs61a.org/" target="blank">UC Berkeley's CS 61A: Structure and Interpretation of Computer Programs</a>.
+                    The project runs a REPL environment of
+                    <a href="https://en.wikipedia.org/wiki/Scheme_(programming_language)">Scheme</a> in the Python
+                    shell, complete with all Scheme functions and properties. It even throws exceptions when it detects
+                    errors and displays the corresponding error type. The project exercises all the fundamentals learned
+                    from this course such as object oriented programming, list comprehension, linked lists, recursion,
+                    tail recursion. Overall, it was fun to make a programming language run another programming
+                    language!
+                </p>
+            </section>
+            <section>
+                <h3><a href="https://github.com/briancpark/TwitterBot">TwitBot</a></h3>
+                <p>
+                    A tiny powerful Twitter bot written in Python. It uses the <a href="https://www.tweepy.org/">Tweepy</a> library,
+                    bridging the connection with the Twitter API and Python. I've built a user interface
+                    that utilizes the power of automation.
+                </p>
+            </section>
+            <section>
+                <a id = "AIGO"><h3>AI GO</h3></a>
+                <img height="300px" src="https://miro.medium.com/max/3840/1*m_phP_gghFLtbXnV2tQaog.jpeg">
+                <p>
+                    This project is a personal side project written in Java, meant to apply all my knowledge in computer
+                    science. It is in development and there are always new modifications or features added when I learn
+                    something new. So far, my knowledge in object oriented programming, data structures, and algorithms to
+                    make the backend of the ancient Chinese game of Go. Deeply inspired by AlphaGo, I soon want to implement
+                    artificial intelligent features once I finish my Introduction to Artificial Intelligence and Machine
+                    Learning courses. Data structures such as game trees are too inefficient and impractical for a
+                    traditional computer to compute. Once I understand how techniques like deep learning work, I hope to
+                    implement it to this game. For now, it is a playable game showing statistics of territories and possible
+                    moves. I soon plan to also implement player to player functionality and an iOS or Android app. If you
+                    have some input or questions, feel free to email me!
+                </p>
+            </section>
+            <!--
+            <section>
+                <h3>Exploring MNIST Neural Networks</h3>
 
-                <section>
-                    <h3><a href="https://github.com/briancpark/COVID-19-Visualizations">COVID-19 Visualizations with Data Science and Machine Learning</a></h3>
-                    <p>
-                        Visualizations of the novel coronavirus with Python. Used data science and machine libraries such as
-                        Pandas, GeoPandas, NumPy, and MatPlotLib.
-                    </p>
-                </section>
-
-                <!--
-                <section>
-                    <h3><a href="https://github.com/jjkaufman/SwiftProcessing">Swift Processing</a></h3>
-                    <p>
-                        Contributed to an open-source library that implements Processing to the Swift programming language.
-                    </p>
-                </section>
-                -->
-
-                <section>
-                    <h3><a href="https://github.com/briancpark/Maps">Yelp Maps</a></h3>
-                    <img height="300" src="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/maps/visualize/voronoi.png">
-                    <p>
-                        A project developed in Python. It is a small replica of Yelp review ratings and has visualization
-                        features using machine learning. It makes use of the Yelp academic dataset. This was the second project
-                        for <a href="https://cs61a.org/" target="blank">UC Berkeley's CS 61A: Structure and Interpretation of Computer Programs</a>
-                        and the full spec of this project can be found
-                        <a href="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/maps/" target="blank">here</a>. It uses list
-                        comprehensions to process data of restaurant at UC Berkeley. The map coloring that is outputted from
-                        this project is the Voronoi diagram.
-                    </p>
-                </section>
-
-                <section>
-                    <h3><a href="https://github.com/briancpark/Mandelbrot-Movie" id ="title_link" id = "MandelMovie">Mandelbrot Movie</a></h3>
-                    <video width="320" height="320" autoplay controls>
-                        <source src="media/mandel.mp4" type="video/mp4">
-                    </video>
-
-                    <p>
-                        This is a project developed in C (C99 Programming Language Standard) to calculate and visualize the
-                        <a href ="https://en.wikipedia.org/wiki/Mandelbrot_set" target="blank">Mandelbrot Set</a>. The main
-                        function behind this project is motivated by the Mandelbrot function, M(Z, C) = Z^2 + C. Where Z is the
-                        center, C is a constant, and Z is an iteration variable. We are interested in how many times Z can
-                        iterate, and we set a maximum iteration value because some functions can iterate indefinitely. M and C
-                        can both be imaginary numbers. The program also deals with how colors are represented when plotting the
-                        Mandelbrot function on a canvas. We use the P6 color pallete where each unique color corresponds to a
-                        unique iteration value that is modulated to a set number. To accelerate the number of for loops in the
-                        code, parallel programming was implemented to optimize the computation across the cores of the CPU.
-                    </p>
-                    <p>
-                        The video is my own fractal zoom calculated at (0.37280535024, -0.2551419600000041) with 1750 maximum
-                        iterations.
-                    </p>
-                </section>
-
-                <section>
-                    <a id = "Scheme"><h3>Scheme Interpreter</h3></a>
-                    <img id="scheme-logo" height="200"src="images/projects/scheme-logo.png">
-                    <p>
-                        This is a project developed in Python. This was the final project for
-                        <a href="https://cs61a.org/" target="blank">UC Berkeley's CS 61A: Structure and Interpretation of Computer Programs</a>.
-                        The project runs a REPL environment of
-                        <a href="https://en.wikipedia.org/wiki/Scheme_(programming_language)">Scheme</a> in the Python
-                        shell, complete with all Scheme functions and properties. It even throws exceptions when it detects
-                        errors and displays the corresponding error type. The project exercises all the fundamentals learned
-                        from this course such as object oriented programming, list comprehension, linked lists, recursion,
-                        tail recursion. Overall, it was fun to make a programming language run another programming
-                        language!
-                    </p>
-                </section>
-
-                <section>
-                    <h3><a href="https://github.com/briancpark/TwitterBot">TwitBot</a></h3>
-                    <p>
-                        A tiny powerful Twitter bot written in Python. It uses the <a href="https://www.tweepy.org/">Tweepy</a> library,
-                        bridging the connection with the Twitter API and Python. I've built a user interface
-                        that utilizes the power of automation.
-                    </p>
-                </section>
-
-                <section>
-                    <a id = "AIGO"><h3>AI GO</h3></a>
-                    <img height="300px" src="https://miro.medium.com/max/3840/1*m_phP_gghFLtbXnV2tQaog.jpeg">
-                    <p>
-                        This project is a personal side project written in Java, meant to apply all my knowledge in computer
-                        science. It is in development and there are always new modifications or features added when I learn
-                        something new. So far, my knowledge in object oriented programming, data structures, and algorithms to
-                        make the backend of the ancient Chinese game of Go. Deeply inspired by AlphaGo, I soon want to implement
-                        artificial intelligent features once I finish my Introduction to Artificial Intelligence and Machine
-                        Learning courses. Data structures such as game trees are too inefficient and impractical for a
-                        traditional computer to compute. Once I understand how techniques like deep learning work, I hope to
-                        implement it to this game. For now, it is a playable game showing statistics of territories and possible
-                        moves. I soon plan to also implement player to player functionality and an iOS or Android app. If you
-                        have some input or questions, feel free to email me!
-                    </p>
-                </section>
-
-
-                <!--
-
-
-                <section>
-                    <h3>Exploring MNIST Neural Networks</h3>
-
-                    <iframe src='https://gfycat.com/ifr/AffectionateMemorableGreyhounddog' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe><p> <a href="https://gfycat.com/affectionatememorablegreyhounddog-artificial-intelligence-neural-networks"></a></p>
-                    <p>
-                        Animation credits: @msvanjie
-                    </p>
-                    <p>
-                        With deep interest in artificial intelligence, I was able to explore and experience implementing
-                        neural networks in different environments. Using the <a href="http://yann.lecun.com/exdb/mnist/">MNIST handwritten digit database</a>,
-                        I implemented MNIST neural networks in assembly with RISC-V ISA, in Python with the use of the
-                        TensorFlow library, and in Python without the use of TensorFlow.
-                    </p>
-                    <p>
-                        Implementing the MNIST neural network in assembly was for a school project in
-                        <a href="https://cs61c.org/" target="blank">UC Berkeley's CS 61C: Machine Structures</a>
-                        This project was special as RISC-V was originated in UC Berkeley. The project is a simple, barebone
-                        implementation of the MNIST neural networks using operations such as vector inner product,
-                        matrix multiplications, and thresholding. The model consists of input matrix, a hidden layer, and
-                        output neurons. Because there are write and read matrix operations in the model, it can be trained
-                        and improved as well as taking user inputted digit that is 28*28 pixels. This was my first time
-                        programming in assembly and implementing a neural network, so it definitely got my hands dirty.
-                    </p>
-                    <p>
-                        Implementation of MNIST neural network with the use of TensorFlow library was a personal exploration,
-                        just to see how a lower level language compares to higher level implementation of neural networks.
-                        Obviously, the use of TensorFlow's helper functions make the code simple and clean. But knowing
-                        what goes under the hood in TensorFlow's library was insightful.
-                    </p>
-                    <p>
-                        Implementing a MNIST neural network in Python without the TensorFlow library was for
-                        <a href="http://inst.eecs.berkeley.edu/~cs188/fa19/">UC Berkeley's CS 188: Introduction to Artificial Intelligence</a>.
-                        Instead, NumPy was used to handle the matrix operations of this neural network. After implementing
-                        the same model differently three times, I understand the why libraries such as TensorFlow and PyTorch
-                        are popular due to their convenience.
-                    </p>
-                </section>
-
-
-
-                <section>
-                    <h3>AI Pacman</h3>
-                    <img src="http://inst.eecs.berkeley.edu/~cs188/fa19/assets/images/maze.png">
-                    <p>
-                        A series of projects written in Python for
-                        <a href="http://inst.eecs.berkeley.edu/~cs188/sp20/">UC Berkeley's CS 188: Introduction to Artificial Intelligence</a>.
-                        The project implements artificially intelligent properties to the retro game of Pacman.
-                    <p>
-                        Search algorithms were used to optimally find the best paths for Pacman to win. Search algorithms
-                        implemented were depth first search, breadth first search, uniform cost search, and A* search. Also
-                        implemented multiple heuristics to optimally find the most efficient and rewarding path for Pacman in
-                        multiple mazes.
-                    </p>
-                    <p>
-                        Game trees were implemented such as minimax, alpha-beta pruning with minimax, and expectimax game
-                        trees. Also implemented evaluation functions to optimally play a classic game of Pacman with ghosts,
-                        factoring each variable, such as if power pallets are all eaten or nearby, or if the ghosts are scared.
-                    </p>
-                    <p>
-                        The third part involves using reinforcement learning with implementations of Markov decision processes,
-                        Q-learning, and policies.
-                    </p>
-                    <p>
-                        the last part was machine learning
-                    </p>
-                </section>
-
-                <section>
-                    <h3>RISC-V CPU</h3>
-                    <img height="100" src="images/projects/risc-v-logo.png">
-                    <p>
-                        A simulation of a single cycle RISC-V CPU created using logic circuits in
-                        <a href="https://en.wikipedia.org/wiki/Logisim">Logisim</a>. The CPU has 8 registers and has modern
-                        architecture and datapath such as pipelining. Simple RISC-V ISA can be loaded in and the simulated
-                        CPU can output results. This was the final project of
-                        <a href="https://cs61c.org/" target="blank">UC Berkeley's CS 61C: Machine Structures</a>.
-                    </p>
-                </section>
-
-                <h6>Personal Projects</h6>
-
-                <section>
-                    <h3><a href = "proj/aipt/aipt.html" id ="title_link">AI PT (with Google's Teachable Machine)</a></h3>
-                    <video width="320" height="320" autoplay controls>
-                        <source src="https://teachablemachine.withgoogle.com/assets/prediction.mp4" type="video/mp4">
-                    </video>
-                    <p>
-                        I started losing weight and getting fit with a personal trainer. Having a personal trainer when
-                        exercising definitely helps because he/she motivates you. But after my gym membership ended, I had to
-                        exercise by myself. I found that hard to do. So I used Google's Teachable Machine version 2.0 to create
-                        my own free personal trainer.
-                    </p>
-                    <p>
-                        I trained models that correctly determine if a posture for an exercise is correct or incorrect.
-                        Programmed with voice feedback, the AI trainer counts and confirms that you are exercising correctly.
-                        I've included negative voice feedback for correction or slow pace and positive voice feedback for
-                        motivation. It is currently a prototype, and purely a demo to test out Google's machine learning model.
-                        You can try the prototype yourself using your webcam!
-                    </p>
-                </section>
-
-                <section>
-                    <h3><a href = "proj/snake/snake.html" id ="title_link">AI Snake</a></h3>
-                    <p>
-                        Snake game written in JavaScript using the P5 library. I've implemented artificial intelligent
-                        features and used neural networks to make the computer learn how to win snake from zero knowledge.
-                        The backend of the snake and code was provided by The Coding Train. Artificial intelligence was coded
-                        by myself with the help of the P5 Machine Learning Library with JavaScript. Click to play or
-                        interactively watch how the AI bot learns how to play snake!
-                    </p>
-                </section>
-
-                <section>
-                    <h3>TwitBot</h3>
-                    <p>
-                        A tiny powerful Twitter bot written in Python. It uses the <a href="https://www.tweepy.org/">Tweepy</a> library,
-                        bridging the connection with the Twitter API and Python. I've built a user interface
-                        that utilizes the power of automation.
-                    </p>
-                </section>
-                -->
+                <iframe src='https://gfycat.com/ifr/AffectionateMemorableGreyhounddog' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe><p> <a href="https://gfycat.com/affectionatememorablegreyhounddog-artificial-intelligence-neural-networks"></a></p>
+                <p>
+                    Animation credits: @msvanjie
+                </p>
+                <p>
+                    With deep interest in artificial intelligence, I was able to explore and experience implementing
+                    neural networks in different environments. Using the <a href="http://yann.lecun.com/exdb/mnist/">MNIST handwritten digit database</a>,
+                    I implemented MNIST neural networks in assembly with RISC-V ISA, in Python with the use of the
+                    TensorFlow library, and in Python without the use of TensorFlow.
+                </p>
+                <p>
+                    Implementing the MNIST neural network in assembly was for a school project in
+                    <a href="https://cs61c.org/" target="blank">UC Berkeley's CS 61C: Machine Structures</a>
+                    This project was special as RISC-V was originated in UC Berkeley. The project is a simple, barebone
+                    implementation of the MNIST neural networks using operations such as vector inner product,
+                    matrix multiplications, and thresholding. The model consists of input matrix, a hidden layer, and
+                    output neurons. Because there are write and read matrix operations in the model, it can be trained
+                    and improved as well as taking user inputted digit that is 28*28 pixels. This was my first time
+                    programming in assembly and implementing a neural network, so it definitely got my hands dirty.
+                </p>
+                <p>
+                    Implementation of MNIST neural network with the use of TensorFlow library was a personal exploration,
+                    just to see how a lower level language compares to higher level implementation of neural networks.
+                    Obviously, the use of TensorFlow's helper functions make the code simple and clean. But knowing
+                    what goes under the hood in TensorFlow's library was insightful.
+                </p>
+                <p>
+                    Implementing a MNIST neural network in Python without the TensorFlow library was for
+                    <a href="http://inst.eecs.berkeley.edu/~cs188/fa19/">UC Berkeley's CS 188: Introduction to Artificial Intelligence</a>.
+                    Instead, NumPy was used to handle the matrix operations of this neural network. After implementing
+                    the same model differently three times, I understand the why libraries such as TensorFlow and PyTorch
+                    are popular due to their convenience.
+                </p>
+            </section>
+            <section>
+                <h3>AI Pacman</h3>
+                <img src="http://inst.eecs.berkeley.edu/~cs188/fa19/assets/images/maze.png">
+                <p>
+                    A series of projects written in Python for
+                    <a href="http://inst.eecs.berkeley.edu/~cs188/sp20/">UC Berkeley's CS 188: Introduction to Artificial Intelligence</a>.
+                    The project implements artificially intelligent properties to the retro game of Pacman.
+                <p>
+                    Search algorithms were used to optimally find the best paths for Pacman to win. Search algorithms
+                    implemented were depth first search, breadth first search, uniform cost search, and A* search. Also
+                    implemented multiple heuristics to optimally find the most efficient and rewarding path for Pacman in
+                    multiple mazes.
+                </p>
+                <p>
+                    Game trees were implemented such as minimax, alpha-beta pruning with minimax, and expectimax game
+                    trees. Also implemented evaluation functions to optimally play a classic game of Pacman with ghosts,
+                    factoring each variable, such as if power pallets are all eaten or nearby, or if the ghosts are scared.
+                </p>
+                <p>
+                    The third part involves using reinforcement learning with implementations of Markov decision processes,
+                    Q-learning, and policies.
+                </p>
+                <p>
+                    the last part was machine learning
+                </p>
+            </section>
+            <section>
+                <h3>RISC-V CPU</h3>
+                <img height="100" src="images/projects/risc-v-logo.png">
+                <p>
+                    A simulation of a single cycle RISC-V CPU created using logic circuits in
+                    <a href="https://en.wikipedia.org/wiki/Logisim">Logisim</a>. The CPU has 8 registers and has modern
+                    architecture and datapath such as pipelining. Simple RISC-V ISA can be loaded in and the simulated
+                    CPU can output results. This was the final project of
+                    <a href="https://cs61c.org/" target="blank">UC Berkeley's CS 61C: Machine Structures</a>.
+                </p>
+            </section>
+            <h6>Personal Projects</h6>
+            <section>
+                <h3><a href = "proj/aipt/aipt.html" id ="title_link">AI PT (with Google's Teachable Machine)</a></h3>
+                <video width="320" height="320" autoplay controls>
+                    <source src="https://teachablemachine.withgoogle.com/assets/prediction.mp4" type="video/mp4">
+                </video>
+                <p>
+                    I started losing weight and getting fit with a personal trainer. Having a personal trainer when
+                    exercising definitely helps because he/she motivates you. But after my gym membership ended, I had to
+                    exercise by myself. I found that hard to do. So I used Google's Teachable Machine version 2.0 to create
+                    my own free personal trainer.
+                </p>
+                <p>
+                    I trained models that correctly determine if a posture for an exercise is correct or incorrect.
+                    Programmed with voice feedback, the AI trainer counts and confirms that you are exercising correctly.
+                    I've included negative voice feedback for correction or slow pace and positive voice feedback for
+                    motivation. It is currently a prototype, and purely a demo to test out Google's machine learning model.
+                    You can try the prototype yourself using your webcam!
+                </p>
+            </section>
+            <section>
+                <h3><a href = "proj/snake/snake.html" id ="title_link">AI Snake</a></h3>
+                <p>
+                    Snake game written in JavaScript using the P5 library. I've implemented artificial intelligent
+                    features and used neural networks to make the computer learn how to win snake from zero knowledge.
+                    The backend of the snake and code was provided by The Coding Train. Artificial intelligence was coded
+                    by myself with the help of the P5 Machine Learning Library with JavaScript. Click to play or
+                    interactively watch how the AI bot learns how to play snake!
+                </p>
+            </section>
+            <section>
+                <h3>TwitBot</h3>
+                <p>
+                    A tiny powerful Twitter bot written in Python. It uses the <a href="https://www.tweepy.org/">Tweepy</a> library,
+                    bridging the connection with the Twitter API and Python. I've built a user interface
+                    that utilizes the power of automation.
+                </p>
+            </section>
+            -->
         </main>
         <!-- Footer -->
         <footer>
