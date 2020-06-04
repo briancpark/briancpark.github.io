@@ -21,3 +21,15 @@
     min-height: 100%;
     z-index: -1;
 }
+
+section {
+    height: 85vh;
+    /*
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+     */
+}

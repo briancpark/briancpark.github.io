@@ -19,7 +19,8 @@ function generateThought() {
                     "Software Development",
                     "#opensource",
                     "Coffee. Code. Sleep. Repeat.",
-                    "#DarkModeEverything"];
+                    "#DarkModeEverything",
+                    "hello world."];
 
     index = Math.floor(Math.random() * thoughts.length);
 
