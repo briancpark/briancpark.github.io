@@ -5,7 +5,6 @@ function generateThought() {
                     "#Quantum",
                     "#QuantumComputing",
                     "Student",
-                    "Aspiring Software Engineer",
                     "Go Bears!",
                     "UC Berkeley",
                     "Not Your Average Techie",
@@ -14,13 +13,14 @@ function generateThought() {
                     "Computer Science",
                     "안녕!",
                     "你好!",
-                    "#Processing",
-                    "Software Engineering",
-                    "Software Development",
-                    "#opensource",
+                    "Software Engineer",
+                    "Software Developer",
+                    "❤️ open source",
                     "Coffee. Code. Sleep. Repeat.",
                     "#DarkModeEverything",
-                    "hello world."];
+                    "hello world.",
+                    "Hello World!",
+                    "print(\"Hello World!\")"];
 
     index = Math.floor(Math.random() * thoughts.length);
 

@@ -41,29 +41,27 @@
         <!--Dynamic Nav Bar-->
         <main>
             <h6><a href="https://github.com/briancpark">Projects</a></h6>
-            <section>
-                <h3><a href="https://github.com/briancpark/COVID-19-Visualizations">COVID-19 Visualizations with Data Science and Machine Learning</a></h3>
+            <section class="project">
+                <h3>COVID-19 Visualizations with Data Science and Machine Learning</h3>
                 <div class="image">
                     <img id="pic" src="https://github.com/briancpark/COVID-19-Visualizations/raw/master/timelapses/us_confirmed_timelapse.gif">
                 </div>
                 <div class="paragraph">
-                    <p>
+                    <p id="description">
                         Visualizations of the novel coronavirus with Python. This was my first step into data science
                         and I really learned a lot through libraries such as Pandas, GeoPandas, NumPy, and MatPlotLib.
                         I primarily used data from NYTimes to analyze US cases and data from JHU CSSE to analyze
                         international cases.
                     </p>
-
                     <div class="buttons">
-                        <button name="submit" class="action_btn submit" type="submit" value="Save" onclick="myFunction()">Save</button>
-                        <button name="submit" class="action_btn cancel" type="submit" value="Cancel" onclick="myFunction2()">Cancel</button>
-                        <p id="saved"></p>
+                        <button class="button github"><a href="https://github.com/briancpark/COVID-19-Visualizations">GitHub</a></button>
+                        <button class="button button1"><a href="https://github.com/briancpark">Website</a></button>
                     </div>
                 </div>
                 <div class="clearfix"></div>
             </section>
             <section>
-                <h3><a href="https://github.com/briancpark/Maps">Yelp Maps</a></h3>
+                <h3>Yelp Maps</h3>
                 <div class="image">
                     <img id="pic" src="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/maps/visualize/voronoi.png">
                 </div>
@@ -77,11 +75,14 @@
                         comprehensions to process data of restaurant at UC Berkeley. The map coloring that is outputted from
                         this project is the Voronoi diagram.
                     </p>
+                    <div class="buttons">
+                        <button class="button button1"><a href="https://inst.eecs.berkeley.edu/~cs61a/sp19/proj/maps/">Project Spec</a></button>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </section>
             <section>
-                <a id = "Scheme"><h3>Scheme Interpreter</h3></a>
+                <h3>Scheme Interpreter</h3>
                 <div class="image">
                     <img id="pic" src="media/scheme-logo.png">
                 </div>
@@ -97,13 +98,17 @@
                         tail recursion. Overall, it was fun to make a programming language run another programming
                         language!
                     </p>
+                    <div class="buttons">
+                        <button class="button button1"><a href="https://github.com/briancpark">GitHub</a></button>
+                        <button class="button button1"><a href="https://github.com/briancpark">Website</a></button>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </section>
             <section>
-                <h3><a href="https://github.com/briancpark/TwitterBot">TwitBot</a></h3>
+                <h3>TwitBot</h3>
                 <div class="image">
-                    <img id="pic" src="data:image/png;base64,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">
+                    <img id="pic" src="https://miro.medium.com/max/1000/1*EVJyTyvcx_puOVJSscJveg.jpeg">
                 </div>
                 <div class="paragraph">
                     <p>
@@ -111,9 +116,14 @@
                         bridging the connection with the Twitter API and Python. I've built a user interface
                         that utilizes the power of automation.
                     </p>
+                    <div class="buttons">
+                        <button class="button button1"><a href="https://github.com/briancpark">GitHub</a></button>
+                        <button class="button button1"><a href="https://github.com/briancpark">Website</a></button>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </section>
+            <!--
             <section>
                 <a id = "AIGO"><h3>AI GO</h3></a>
                 <div class="image">
@@ -135,7 +145,6 @@
                 </div>
                 <div class="clearfix"></div>
             </section>
-            <!--
             <section>
                 <h3><a href="https://github.com/briancpark/Mandelbrot-Movie" id ="title_link" id = "MandelMovie">Mandelbrot Movie</a></h3>
                 <video width="320" height="320" autoplay controls>
@@ -231,7 +240,6 @@
                     <a href="https://cs61c.org/" target="blank">UC Berkeley's CS 61C: Machine Structures</a>.
                 </p>
             </section>
-            <h6>Personal Projects</h6>
             <section>
                 <h3><a href = "proj/aipt/aipt.html" id ="title_link">AI PT (with Google's Teachable Machine)</a></h3>
                 <video width="320" height="320" autoplay controls>
@@ -259,14 +267,6 @@
                     The backend of the snake and code was provided by The Coding Train. Artificial intelligence was coded
                     by myself with the help of the P5 Machine Learning Library with JavaScript. Click to play or
                     interactively watch how the AI bot learns how to play snake!
-                </p>
-            </section>
-            <section>
-                <h3>TwitBot</h3>
-                <p>
-                    A tiny powerful Twitter bot written in Python. It uses the <a href="https://www.tweepy.org/">Tweepy</a> library,
-                    bridging the connection with the Twitter API and Python. I've built a user interface
-                    that utilizes the power of automation.
                 </p>
             </section>
             -->
