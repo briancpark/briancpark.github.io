@@ -3,16 +3,72 @@ h6 a {
     color: white;
 }
 
-h5 {
-    text-align: center;
-    font-size: 3em;
-}
-
 h3 {
     text-align: center;
     font-size: 3em;
 }
 
+.info {
+    display: flex;
+}
+
+
+#visual {
+    border: 1em;
+    width: 50%;
+}
+
+.description {
+
+}
+
+p {
+    font-size: 1.5em;
+    margin: 1em;
+    color: white;
+    text-align: center;
+}
+
+.buttons {
+    width: 10vw;
+    margin: 0 auto;
+    display: flex;
+}
+
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: darkgreen;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+button a {
+    text-decoration: none;
+    color: lawngreen;
+}
+
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+/*
 .image {
     width: 50vw;
     float: left;
@@ -33,47 +89,11 @@ h3 {
 }
 
 
-.buttons {
-    width: 10vw;
-    margin: 0 auto;
-    display: flex;
-}
 
 
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
 
-.github {
-    background-color: #707070;
-    color: black;
-    border: 2px solid #4CAF50;
-}
 
-.button1 {
-    background-color: #707070;
-    color: black;
-    border: 2px solid #4CAF50;
-}
 
-button a {
-    text-decoration: none;
-}
-
-.button1:hover {
-    background-color: #4CAF50;
-    color: white;
-}
 
 .project {
     padding: 1.5em;
@@ -89,3 +109,8 @@ p {
 section {
     margin: 0;
 }
+
+img {
+    border: 5em;
+}
+*/
