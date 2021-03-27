@@ -15,12 +15,12 @@ h3 {
 
 #visual {
     border: 1em;
-    object-fit: contain;
     width: 50%;
+    object-fit: fill;
 }
 
 .description {
-
+    width: 50%;
 }
 
 p {
