@@ -1,9 +1,6 @@
 function generateThought() {
     var thoughts = ["Placeholder for the number of days I coded",
                     "Let’s Make the World Better with Software",
-                    "#QuantumSupremacy",
-                    "#Quantum",
-                    "#QuantumComputing",
                     "Student",
                     "Go Bears!",
                     "UC Berkeley",
