@@ -24,6 +24,9 @@ function generateThought() {
                     "macOS",
                     "Educator",
                     "NumS",
+                    "",
+                    "SWE Intern @ ",
+                    "Apple Intern",
                     "hello world.",
                     "Hello World!",
                     "print(\"Hello World!\")"];
