@@ -51,22 +51,40 @@
     </p>
 
     <section>
-        <h3>Numc</h3>
+        <h3>GEMM</h3>
         <div class="info">
-            <img id="visual" src="media/project_media/simd.gif">
+            <img id="visual" src="https://raw.githubusercontent.com/nums-project/identity/master/Logo/SVG/nums-logo.svg">
             <div class="description">
                 <p>
-                    This was a school project for UC Berkeley's CS 61C, Great Ideas in Computer Architecture (Machine
-                    Structures).
-                    Made a NumPy library clone in C. Used SIMD and MIMD to accelerate matrix operations, with frameworks
-                    such as Intel AVX Intrinsics and OpenMP,
-                    as well as optimizations with caches and virtual memory. Benchmarked 110X speed up in DGEMM and
-                    2200X in matrix exponentiation on an
-                    Intel i7-4770 processor. Scored on average top 100 out of 1200+ students out of multiple categories,
-                    scored top 10 in matrix unary/binary operations category.
+                    Achieved up to 25.2 TFLOPS DGEMM with 4 NVIDIA V100 GPUs linked with NVLink (80.8% of theoretical peak)
+                    for NumS using CuPy, cuBLAS, and NCCL in Python. This was a final project for UC Berkeley's CS 267,
+                    Applications of Parallel Programs, a graduate course on parallel computing. It was also a contribution
+                    to a research project under RISELab, NumS. NumS is a numerical computing library that extends NumPy to
+                    distributed systems. It supports backends for Ray, MPI, and Dask. I helped implement a backend for NVIDIA GPUs
+                    using CuPy and NCCL.
+                </p>
+                <p>
+                    Achieved up to 15.7 GFLOPS DGEMM on a single core Intel Xeon Phi 7250 (KNL) processor (35.1 % of theoretical
+                    peak) with Intel AVX-512 in C. Scored 93rd percentile out of 200+ graduate students. This was a
+                    homework assignment for UC Berkeley's CS 267.
+                </p>
+                <p>
+                    Achieved up to 8.2 GFLOPS DGEMM on multiple core Intel i7-4770 processor (28% of theoretical peak)
+                    using OpenMP and Intel AVX, FMA in C. This was a school project for UC Berkeley's CS 61C,
+                    Great Ideas in Computer Architecture (Machine Structures) where we built a simple NumPy clone.
+                    Benchmarked 110X speed up in DGEMM and 2200X in matrix exponentiation against scalar reference
+                    implementation. Scored on average top 100 out of 1200+ students out of multiple categories,
+                    scored top 10 in matrix elementwise operations category.
+                </p>
+                <p>
+                    Scored 99% percentile simulating integer matrix multiply on Chipyard, a RISC-V simulator. This was a lab
+                    assignment for UC Berkeley's CS 152, Computer Architecture and Engineering. Optimized over number
+                    of cycles as well as trying to optimize cache coherency on multiple cores.
                 </p>
                 <div class="buttons">
-                    <button class="button button1"><a href="https://cs61c.org/fa20/projects/proj4/">Spec</a></button>
+                    <button class="button button1"><a href="media/project_media/cs267poster.pdf">Poster</a></button>
+                    <button class="button button1"><a href="media/project_media/cs267.pdf">Final Report</a></button>
+                    <button class="button button1"><a href="media/project_media/cs267hw1.pdf">KNL DGEMM Report</a></button>
                 </div>
             </div>
         </div>
