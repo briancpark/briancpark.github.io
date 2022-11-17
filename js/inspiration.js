@@ -35,6 +35,7 @@ function generateThought() {
         "Apple Intern",
         "hello world.",
         "Hello World!",
+        "he/him/his",
         "North Carolina State University",
         "NCSU",
         "NCSU 2024",
