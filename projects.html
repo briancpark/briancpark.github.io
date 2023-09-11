@@ -111,13 +111,34 @@
             <img id="visual" src="media/project_media/sr_benchmarks.png">
             <div class="description">
                 <p>
-                     Uses pruning, quantization, channel preprocessing, and compiler optimizations via PyTorch and NNI to achieve real-time inference of 25 FPS (40ms per frame) on Samsung Galaxy S10e GPU with CoCoPIE XGen compiler and 333 FPS (3ms per frame) on iPhone 13 Pro Neural Engine with CoreML. Achieves a speedup of 3.27X over original model.
-<!--                    TODO: Gotta include links and upload themm -->
+                    Uses pruning, quantization, channel preprocessing, and compiler optimizations via PyTorch and NNI
+                    to achieve real-time inference of 25 FPS (40ms per frame) on Samsung Galaxy S10e GPU with CoCoPIE
+                    XGen compiler and 333 FPS (3ms per frame) on iPhone 13 Pro Neural Engine with CoreML. Achieves a
+                    speedup of 3.27X over original model.
                 </p>
-<!--                <div class="buttons">-->
-<!--                    <button class="button button1"><a href="https://www.kaggle.com/briancpark/competitions">Profile</a>-->
-<!--                    </button>-->
-<!--                </div>-->
+                <div class="buttons">
+                    <button class="button button1"><a href="https://github.com/briancpark/video-super-resolution">GitHub</a></button>
+                    <button class="button button1"><a href="https://docs.google.com/viewer?url=https://github.com/briancpark/video-super-resolution/raw/main/final.pdf">Report</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3>Optimizing DNN Operators for Mobile GPUs</h3>
+        <div class="info">
+            <img id="visual" src="media/project_media/ocl_gpu.png">
+            <div class="description">
+                <p>
+                    Completed GPU support of RegNet to XiaoMi’s MACE framework by adding support for optimized group
+                    convolution microkernels in OpenCL and C++. Achieves a speedup of 1.2X on inference over CPU
+                    versions of RegNet, with GPU group convolution achieving 5.4X speedup against its CPU operator.
+                    The implementation was integrated into CoCoPIE XGen compiler.
+                </p>
+                <div class="buttons">
+                    <button class="button button1"><a href="https://github.com/briancpark/csc766-project">GitHub</a></button>
+                    <button class="button button1"><a href="https://docs.google.com/viewer?url=https://github.com/briancpark/csc766-project/raw/main/report.pdf">Report</a></button>
+                </div>
             </div>
         </div>
     </section>
