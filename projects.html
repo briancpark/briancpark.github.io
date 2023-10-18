@@ -13,11 +13,15 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154924062-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-154924062-1');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154924062-1');
     </script>
 </head>
 <body>
@@ -49,38 +53,41 @@
     <section>
         <h3>GEMM</h3>
         <div class="info">
-            <img id="visual" src="https://raw.githubusercontent.com/nums-project/identity/master/Logo/SVG/nums-logo.svg">
+            <img id="visual"
+                 src="https://raw.githubusercontent.com/nums-project/identity/master/Logo/SVG/nums-logo.svg">
             <div class="description">
                 <p>
-                    Achieved up to 25.2 TFLOPS DGEMM with 4 NVIDIA V100 GPUs linked with NVLink (80.8% of theoretical peak)
-                    for NumS using CuPy, cuBLAS, and NCCL in Python. This was a final project for UC Berkeley's CS 267,
-                    Applications of Parallel Programs, a graduate course on parallel computing. It was also a contribution
-                    to a research project under RISELab, NumS. NumS is a numerical computing library that extends NumPy to
-                    distributed systems. It supports backends for Ray, MPI, and Dask. I helped implement a backend for NVIDIA GPUs
-                    using CuPy and NCCL.
+                    Achieved up to 25.2 TFLOPS DGEMM with 4 NVIDIA V100 GPUs linked with NVLink (80.8% of theoretical
+                    peak) for NumS using CuPy, cuBLAS, and NCCL in Python. This was a final project for UC Berkeley's CS
+                    267, Applications of Parallel Programs, a graduate course on parallel computing. It was also a
+                    contribution to a research project under RISELab, NumS. NumS is a numerical computing library that
+                    extends NumPy to distributed systems. It supports backends for Ray, MPI, and Dask. I helped
+                    implement a backend for NVIDIA GPUs using CuPy and NCCL.
                 </p>
                 <p>
-                    Achieved up to 15.7 GFLOPS DGEMM on a single core Intel Xeon Phi 7250 (KNL) processor (35.1 % of theoretical
-                    peak) with Intel AVX-512 in C. Scored 93rd percentile out of 200+ graduate students. This was a
-                    homework assignment for UC Berkeley's CS 267.
+                    Achieved up to 15.7 GFLOPS DGEMM on a single core Intel Xeon Phi 7250 (KNL) processor (35.1 % of
+                    theoretical peak) with Intel AVX-512 in C. Scored 93rd percentile out of 200+ graduate students.
+                    This was a homework assignment for UC Berkeley's CS 267.
                 </p>
                 <p>
                     Achieved up to 8.2 GFLOPS DGEMM on multiple core Intel i7-4770 processor (28% of theoretical peak)
-                    using OpenMP and Intel AVX, FMA in C. This was a school project for UC Berkeley's CS 61C,
-                    Great Ideas in Computer Architecture (Machine Structures) where we built a simple NumPy clone.
-                    Benchmarked 110X speed up in DGEMM and 2200X in matrix exponentiation against scalar reference
-                    implementation. Scored on average top 100 out of 1200+ students out of multiple categories,
-                    scored top 10 in matrix elementwise operations category.
+                    using OpenMP and Intel AVX, FMA in C. This was a school project for UC Berkeley's CS 61C, Great
+                    Ideas in Computer Architecture (Machine Structures) where we built a simple NumPy clone. Benchmarked
+                    110X speed up in DGEMM and 2200X in matrix exponentiation against scalar reference implementation.
+                    Scored on average top 100 out of 1200+ students out of multiple categories, scored top 10 in matrix
+                    elementwise operations category.
                 </p>
                 <p>
-                    Scored 99% percentile simulating integer matrix multiply on Chipyard, a RISC-V simulator. This was a lab
-                    assignment for UC Berkeley's CS 152, Computer Architecture and Engineering. Optimized over number
-                    of cycles as well as trying to optimize cache coherency on multiple cores.
+                    Scored 99% percentile simulating integer matrix multiply on Chipyard, a RISC-V simulator. This was a
+                    lab assignment for UC Berkeley's CS 152, Computer Architecture and Engineering. Optimized over
+                    number of cycles as well as trying to optimize cache coherency on multiple cores.
                 </p>
                 <div class="buttons">
                     <button class="button button1"><a href="media/project_media/cs267poster.pdf">Poster</a></button>
                     <button class="button button1"><a href="media/project_media/cs267.pdf">Final Report</a></button>
-                    <button class="button button1"><a href="https://docs.google.com/viewer?url=https://github.com/briancpark/cs267/raw/main/hw/latex/hw1.pdf">KNL DGEMM Report</a></button>
+                    <button class="button button1"><a
+                            href="https://docs.google.com/viewer?url=https://github.com/briancpark/cs267/raw/main/hw/latex/hw1.pdf">KNL
+                        DGEMM Report</a></button>
                 </div>
             </div>
         </div>
@@ -93,10 +100,9 @@
             <div class="description">
                 <p>
                     This was a school project for UC Berkeley's CS 61C, Great Ideas in Computer Architecture (Machine
-                    Structures).
-                    Designed a CPU with datapath, control logic, and memory fully implemented in Logisim following the
-                    RISC-V 32-bit ISA.
-                    Design scored top 100 out of 1200+ students based on how many logic gates were efficiently used.
+                    Structures). Designed a CPU with datapath, control logic, and memory fully implemented in Logisim
+                    following the RISC-V 32-bit ISA. Design scored top 100 out of 1200+ students based on how many logic
+                    gates were efficiently used.
                 </p>
                 <div class="buttons">
                     <button class="button button1"><a href="https://cs61c.org/fa20/projects/proj3/">Spec</a></button>
@@ -111,14 +117,18 @@
             <img id="visual" src="media/project_media/sr_benchmarks.png">
             <div class="description">
                 <p>
-                    Uses pruning, quantization, channel preprocessing, and compiler optimizations via PyTorch and NNI
-                    to achieve real-time inference of 25 FPS (40ms per frame) on Samsung Galaxy S10e GPU with CoCoPIE
-                    XGen compiler and 333 FPS (3ms per frame) on iPhone 13 Pro Neural Engine with CoreML. Achieves a
-                    speedup of 3.27X over original model.
+                    This was a school project for NCSU's CSC 791-025, High Performance Machine Learning and Real-Time
+                    AI. Uses pruning, quantization, channel preprocessing, and compiler optimizations via PyTorch and
+                    NNI to achieve real-time inference of 25 FPS (40ms per frame) on Samsung Galaxy S10e GPU with
+                    CoCoPIE XGen compiler and 333 FPS (3ms per frame) on iPhone 13 Pro Neural Engine with CoreML.
+                    Achieves a speedup of 3.27X over original model.
                 </p>
                 <div class="buttons">
-                    <button class="button button1"><a href="https://github.com/briancpark/video-super-resolution">GitHub</a></button>
-                    <button class="button button1"><a href="https://docs.google.com/viewer?url=https://github.com/briancpark/video-super-resolution/raw/main/final.pdf">Report</a></button>
+                    <button class="button button1"><a
+                            href="https://github.com/briancpark/video-super-resolution">GitHub</a></button>
+                    <button class="button button1"><a
+                            href="https://docs.google.com/viewer?url=https://github.com/briancpark/video-super-resolution/raw/main/final.pdf">Report</a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -130,14 +140,18 @@
             <img id="visual" src="media/project_media/ocl_gpu.png">
             <div class="description">
                 <p>
-                    Completed GPU support of RegNet to XiaoMi’s MACE framework by adding support for optimized group
-                    convolution microkernels in OpenCL and C++. Achieves a speedup of 1.2X on inference over CPU
-                    versions of RegNet, with GPU group convolution achieving 5.4X speedup against its CPU operator.
-                    The implementation was integrated into CoCoPIE XGen compiler.
+                    This was a school project for NCSU's CSC 766 Code Optimization for Scalar and Parallel Programs,
+                    High Performance Machine Learning and Real-Time AI. Completed GPU support of RegNet to XiaoMi’s MACE
+                    framework by adding support for optimized group convolution microkernels in OpenCL and C++. Achieves
+                    a speedup of 1.2X on inference over CPU versions of RegNet, with GPU group convolution achieving
+                    5.4X speedup against its CPU operator. The implementation was integrated into CoCoPIE XGen compiler.
                 </p>
                 <div class="buttons">
-                    <button class="button button1"><a href="https://github.com/briancpark/csc766-project">GitHub</a></button>
-                    <button class="button button1"><a href="https://docs.google.com/viewer?url=https://github.com/briancpark/csc766-project/raw/main/report.pdf">Report</a></button>
+                    <button class="button button1"><a href="https://github.com/briancpark/csc766-project">GitHub</a>
+                    </button>
+                    <button class="button button1"><a
+                            href="https://docs.google.com/viewer?url=https://github.com/briancpark/csc766-project/raw/main/report.pdf">Report</a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -150,13 +164,10 @@
             <div class="description">
                 <p>
                     This was a series of homework assignments for UC Berkeley's CS 189, Introduction to Machine
-                    Learning.
-                    Scored on average top 5% of the class in Kaggle InClass Prediction Competitions consisting of 600+
-                    graduate
-                    and undergraduate students. Competed for the best classifiers such as SVMs, GDA, Logistic
-                    Regression,
-                    Decision Trees/Random Forests, Neural Networks, and Latent Matrix Factorization developed from
-                    scratch in Python.
+                    Learning. Scored on average top 5% of the class in Kaggle InClass Prediction Competitions consisting
+                    of 600+ graduate and undergraduate students. Competed for the best classifiers such as SVMs, GDA,
+                    Logistic Regression, Decision Trees/Random Forests, Neural Networks, and Latent Matrix Factorization
+                    developed from scratch in Python.
                 </p>
                 <div class="buttons">
                     <button class="button button1"><a href="https://www.kaggle.com/briancpark/competitions">Profile</a>
@@ -172,10 +183,10 @@
             <img id="visual" src="media/project_media/pacman.gif">
             <div class="description">
                 <p>
-                    This was a school project for UC Berkeley's CS 188, Introduction to Artificial Intelligence.
-                    Encoded a series of AI functionality to the game of Pacman in Python, such as searching
-                    algorithms, gametrees, MDPs, reinforcement learning, and Bayesian networks.
-                    Scored 5th for best AI agent out of 600+ students.
+                    This was a school project for UC Berkeley's CS 188, Introduction to Artificial Intelligence. Encoded
+                    a series of AI functionality to the game of Pacman in Python, such as searching algorithms,
+                    gametrees, MDPs, reinforcement learning, and Bayesian networks. Scored 5th for best AI agent out of
+                    600+ students.
                 </p>
                 <div class="buttons">
                     <button class="button button1"><a
@@ -192,10 +203,9 @@
                  src="https://github.com/briancpark/COVID-19-Visualizations/raw/master/timelapses/us_confirmed_timelapse.gif">
             <div class="description">
                 <p>
-                    Visualizations of the novel coronavirus with Python. This was my first step into data science
-                    and I really learned a lot through libraries such as Pandas, GeoPandas, NumPy, and MatPlotLib.
-                    I primarily used data from NYTimes to analyze US cases and data from JHU CSSE to analyze
-                    international cases.
+                    Visualizations of the novel coronavirus with Python. This was my first step into data science and I
+                    really learned a lot through libraries such as Pandas, GeoPandas, NumPy, and MatPlotLib. I primarily
+                    used data from NYTimes to analyze US cases and data from JHU CSSE to analyze international cases.
                 </p>
                 <div class="buttons">
                     <button class="button button1"><a href="https://github.com/briancpark/COVID-19-Visualizations">GitHub</a>
@@ -212,10 +222,9 @@
             <div class="description">
                 <p>
                     This was for a school project for UC Berkeley's CS 61BL, Data Structures and Programming
-                    Methodology.
-                    A Git clone made in Java using SHA-1 serialization and basic data structures.
-                    Can do basic version control system through the command line such as init, add, commit,
-                    log, find, status, branch, checkout, merge, rebase, push, pull, etc.
+                    Methodology. A Git clone made in Java using SHA-1 serialization and basic data structures. Can do
+                    basic version control system through the command line such as init, add, commit, log, find, status,
+                    branch, checkout, merge, rebase, push, pull, etc.
                 </p>
                 <div class="buttons">
                     <button class="button button1"><a href="https://cs61bl.org/su20/projects/gitlet/">Spec</a></button>
@@ -231,8 +240,7 @@
             <div class="description">
                 <p>
                     This was for a school project for UC Berkeley's CS 61BL, Data Structures and Programming
-                    Methodology.
-                    Created a mini web map application deployed on Heroku using OpenStreetMap of Berkeley.
+                    Methodology. Created a mini web map application deployed on Heroku using OpenStreetMap of Berkeley.
                     Application uses data structures and algorithms such as tries, hashing, A* shortest path,
                     rasterizing, and KD-trees.
                 </p>
@@ -254,9 +262,9 @@
                 <p>
                     This was a school project for UC Berkeley's EECS 16B, Designing Information Devices and Systems II.
                     Made a self-driving car with circuits, op-amps, filters, and sensors with a TI MSP-EXP430F5529LP
-                    microcontroller.
-                    Software is written in C++ and can recognize four voice commands corresponding to four actions.
-                    Commands are classified with unsupervised learning technique using principal components analysis.
+                    microcontroller. Software is written in C++ and can recognize four voice commands corresponding to
+                    four actions. Commands are classified with unsupervised learning technique using principal
+                    components analysis.
                 </p>
             </div>
         </div>
@@ -270,9 +278,9 @@
                     scrolling='no' src='https://gfycat.com/ifr/FalseBoldHound' width='640'></iframe>
             <div class="description">
                 <p>
-                    A small project in C++ that can make a movie of a zoom in of the Mandelbrot set.
-                    Creates bitmap images and uses ffmpeg to stitch frames together into a movie or gif.
-                    Computation of the Mandelbrot set, as well creating images is accelerated using OpenMP.
+                    A small project in C++ that can make a movie of a zoom in of the Mandelbrot set. Creates bitmap
+                    images and uses ffmpeg to stitch frames together into a movie or gif. Computation of the Mandelbrot
+                    set, as well creating images is accelerated using OpenMP.
                 </p>
                 <div class="buttons">
                     <button class="button button1"><a href="https://github.com/briancpark/mandelbrot">GitHub</a>
