@@ -20,3 +20,8 @@ h6 {
     text-align: center;
     font-size: 4em;
 }
+
+.apple-logo::before {
+    content: "";
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
