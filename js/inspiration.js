@@ -131,7 +131,7 @@ var thoughts = [
     "NEON"
 ];
 
-shuffle the thoughts
+// shuffle the thoughts
 thoughts.sort(function() {
     return 0.5 - Math.random();
 });
