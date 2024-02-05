@@ -67,3 +67,8 @@ button a {
     background-color: #4CAF50;
     color: white;
 }
+
+a {
+    text-decoration: none;
+    color: greenyellow;
+}

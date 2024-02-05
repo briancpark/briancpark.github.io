@@ -1,10 +1,21 @@
+/*
+    Let's make some Perlin noise!
+
+    Colorful particles that move around the screen. I REALLLLLY tried hard to make this mobile 
+    friendly. I think it's pretty good. Plus, THE CONTRAST OF THE RAINBOW COLORS AGAINST
+    THE BLACK BACKGROUND IS SO SICK!!!
+
+    The effect is SO MUCH COOLER ON AN OLED SCREEN :D
+
+    Credits to Daniel Shiffman for inspiring me to learn p5.js and for the code for this sketch
+    All aboard the Coding Train! https://thecodingtrain.com/
+*/
+
 var inc = 0.1;
 var scl = innerWidth / 100;
 var cols, rows;
 
 var zoff = 0;
-
-//var fr;
 
 var particles = [];
 
@@ -16,15 +27,9 @@ function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
     canvas.style('z-index', '-1');
 
-    //h1 = createElement('h1', generateThought());
-    //h1.position(width / 2, height / 2);
-    //h1.style('z-index', '-1');
-
-
     colorMode(HSB, 255);
     cols = floor(width / scl);
     rows = floor(height / scl);
-    //fr = createP('');
 
     flowfield = new Array(cols * rows);
 
@@ -59,14 +64,9 @@ function draw() {
         particles[i].edges();
         particles[i].show();
     }
-
-    //fr.html(floor(frameRate()));
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    //h1.position(width / 2, height / 2);
-
-
     background(0);
 }
