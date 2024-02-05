@@ -15,10 +15,10 @@ function Particle() {
     };
 
     this.follow = function(vectors) {
-        var x = floor(this.pos.x / scl);
-        var y = floor(this.pos.y / scl);
-        var index = x + y * cols;
-        var force = vectors[index];
+        const x = floor(this.pos.x / scl);
+        const y = floor(this.pos.y / scl);
+        const index = x + y * cols;
+        const force = vectors[index];
         this.applyForce(force);
     };
 

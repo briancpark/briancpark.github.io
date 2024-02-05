@@ -1,27 +1,30 @@
 /*
     Let's make some Perlin noise!
 
-    Colorful particles that move around the screen. I REALLLLLY tried hard to make this mobile 
-    friendly. I think it's pretty good. Plus, THE CONTRAST OF THE RAINBOW COLORS AGAINST
+    Colorful particles that move around the screen. I REALLLLLY
+    tried hard to make this mobile friendly. I think it's
+    pretty good. Plus, THE CONTRAST OF THE RAINBOW COLORS AGAINST
     THE BLACK BACKGROUND IS SO SICK!!!
 
     The effect is SO MUCH COOLER ON AN OLED SCREEN :D
 
-    Credits to Daniel Shiffman for inspiring me to learn p5.js and for the code for this sketch
+    Credits to Daniel Shiffman for inspiring me to learn p5.js
+    and for the code for this sketch.
+
     All aboard the Coding Train! https://thecodingtrain.com/
 */
 
-var inc = 0.1;
-var scl = innerWidth / 100;
-var cols, rows;
+const inc = 0.1;
+const scl = innerWidth / 100;
+let cols; let rows;
 
-var zoff = 0;
+let zoff = 0;
 
-var particles = [];
+const particles = [];
 
-var flowfield;
+let flowfield;
 
-var canvas;
+let canvas;
 
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
@@ -33,7 +36,7 @@ function setup() {
 
     flowfield = new Array(cols * rows);
 
-    for (var i = 0; i < 300; i++) {
+    for (let i = 0; i < 300; i++) {
         particles[i] = new Particle();
     }
     background(0);
@@ -41,13 +44,13 @@ function setup() {
 }
 
 function draw() {
-    var yoff = 0;
-    for (var y = 0; y < rows; y++) {
-        var xoff = 0;
-        for (var x = 0; x < cols; x++) {
-            var index = x + y * cols;
-            var angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
-            var v = p5.Vector.fromAngle(angle);
+    let yoff = 0;
+    for (let y = 0; y < rows; y++) {
+        let xoff = 0;
+        for (let x = 0; x < cols; x++) {
+            const index = x + y * cols;
+            const angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
+            const v = p5.Vector.fromAngle(angle);
             v.setMag(1);
             flowfield[index] = v;
             xoff += inc;
@@ -58,7 +61,7 @@ function draw() {
         zoff += 0.0003;
     }
 
-    for (var i = 0; i < particles.length; i++) {
+    for (let i = 0; i < particles.length; i++) {
         particles[i].follow(flowfield);
         particles[i].update();
         particles[i].edges();
