@@ -30,15 +30,30 @@ p {
     text-align: center;
 }
 
+/* The centering of the buttons became really complex. Prompting an LLM helps, but I feel like this could be done
+better or more efficiently. */
+
 .buttons {
-    width: 10vw;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
     display: flex;
-    align: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 5px;
+    grid-auto-rows: 1fr;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+@media (max-width: 300px) {
+    .buttons {
+        grid-template-columns: 1fr;
+    }
+}
 
 .button {
+    box-sizing: border-box;
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -46,10 +61,17 @@ p {
     text-align: center;
     text-decoration: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 0px;
     transition-duration: 0.4s;
     cursor: pointer;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+    min-width: 100px;
 }
 
 .button1 {
