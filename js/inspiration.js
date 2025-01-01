@@ -12,14 +12,10 @@ const thoughts = [
     '你好!',
     'こんにちは!',
     'Software Engineer',
-    'Software Developer',
     '❤️ open source',
     'I ❤️ GitHub',
     'Coffee. Code. Sleep. Repeat.',
     '#DarkModeEverything',
-    '<span class=\'apple-logo\'></span>',
-    'SWE @ <span class=\'apple-logo\'></span>',
-    'ML Compiler Engineer @ <span class=\'apple-logo\'></span>',
     'Addicted to making code go fast 🏎️💨',
     'Addicted to making code go brrr',
     'Addicted to making code go zoom zoom',
@@ -27,10 +23,8 @@ const thoughts = [
     'This is Perlin Noise',
     'Perlin Noise',
     'Perlin Noise is Cool',
-    '<span class=\'apple-logo\'></span><span class=\'apple-logo\'></span><span class=\'apple-logo\'></span>',
     'hello world.',
     'Hello World!',
-    'he/him/his',
 ];
 
 // Shuffle the thoughts
