@@ -36,7 +36,7 @@ function setup() {
 
     flowfield = new Array(cols * rows);
 
-    let particleCount = floor((windowWidth * windowHeight) / 1000);
+    let particleCount = floor((windowWidth * windowHeight) / 500);
     for (let i = 0; i < particleCount; i++) {
         particles[i] = new Particle();
     }
@@ -47,7 +47,7 @@ function setup() {
 
 function draw() {
     // Draw a slightly transparent black background to fade old trails
-    background(0, 0, 0, 12.5); // HSB mode: black with low alpha
+    background(0, 0, 0, 40); // HSB mode: black with low alpha
 
     let yoff = 0;
     for (let y = 0; y < rows; y++) {
