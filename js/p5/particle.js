@@ -2,16 +2,23 @@ function Particle() {
     this.pos = createVector(random(width), random(height));
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
-    this.maxspeed = 4;
+    this.maxspeed = 4.5;
     this.h = 0;
 
-    this.prevPos = this.pos.copy();
+    this.trail = [];
+    this.maxTrail = 2; // Length of visible trail
 
     this.update = function() {
         this.vel.add(this.acc);
         this.vel.limit(this.maxspeed);
         this.pos.add(this.vel);
         this.acc.mult(0);
+
+        // Store a copy of the current position
+        this.trail.push(this.pos.copy());
+        if (this.trail.length > this.maxTrail) {
+            this.trail.shift(); // Remove oldest point
+        }
     };
 
     this.follow = function(vectors) {
@@ -27,37 +34,35 @@ function Particle() {
     };
 
     this.show = function() {
-        stroke(this.h, 255, 255, 25);
-        this.h = this.h + 1;
-        if (this.h > 255) {
-            this.h = 0;
+        noFill();
+        beginShape();
+        for (let i = 0; i < this.trail.length; i++) {
+            let pos = this.trail[i];
+            stroke(this.h, 255, 255, 255);
+            strokeWeight(2.5);
+            vertex(pos.x, pos.y);
         }
-        strokeWeight(1);
-        line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
-        this.updatePrev();
-    };
+        endShape();
 
-    this.updatePrev = function() {
-        this.prevPos.x = this.pos.x;
-        this.prevPos.y = this.pos.y;
+        this.h = (this.h + 1) % 256;
     };
 
     this.edges = function() {
         if (this.pos.x > width) {
             this.pos.x = 0;
-            this.updatePrev();
+            this.trail = [];
         }
         if (this.pos.x < 0) {
             this.pos.x = width;
-            this.updatePrev();
+            this.trail = [];
         }
         if (this.pos.y > height) {
             this.pos.y = 0;
-            this.updatePrev();
+            this.trail = [];
         }
         if (this.pos.y < 0) {
             this.pos.y = height;
-            this.updatePrev();
+            this.trail = [];
         }
     };
 }

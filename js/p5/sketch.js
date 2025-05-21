@@ -36,14 +36,19 @@ function setup() {
 
     flowfield = new Array(cols * rows);
 
-    for (let i = 0; i < 300; i++) {
+    let particleCount = floor((windowWidth * windowHeight) / 1000);
+    for (let i = 0; i < particleCount; i++) {
         particles[i] = new Particle();
     }
+
     background(0);
     canvas.position(0, 0);
 }
 
 function draw() {
+    // Draw a slightly transparent black background to fade old trails
+    background(0, 0, 0, 12.5); // HSB mode: black with low alpha
+
     let yoff = 0;
     for (let y = 0; y < rows; y++) {
         let xoff = 0;
@@ -54,12 +59,10 @@ function draw() {
             v.setMag(1);
             flowfield[index] = v;
             xoff += inc;
-            stroke(0, 50);
         }
         yoff += inc;
-
-        zoff += 0.0003;
     }
+    zoff += 0.0003;
 
     for (let i = 0; i < particles.length; i++) {
         particles[i].follow(flowfield);
