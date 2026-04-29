@@ -48,3 +48,46 @@ const options = {
 
 // eslint-disable-next-line no-unused-vars
 const typed = new Typed('#quote', options);
+
+// Heartbeat: each typed character pulses out particles from its own position,
+// each deleted character despawns roaming particles (typed ones stick around).
+(function() {
+    const quote = document.getElementById('quote');
+    if (!quote) return;
+    const PARTICLES_PER_CHAR = 22;
+    let lastLength = quote.textContent.length;
+
+    function textRect(el) {
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        const rect = range.getBoundingClientRect();
+        if (rect.width === 0 && rect.height === 0) return null;
+        return rect;
+    }
+
+    const observer = new MutationObserver(() => {
+        const newLength = quote.textContent.length;
+        const delta = newLength - lastLength;
+        if (delta === 0) return;
+        lastLength = newLength;
+
+        if (delta > 0 && typeof addParticles === 'function') {
+            const rect = textRect(quote) || quote.getBoundingClientRect();
+            const cx = rect.left + window.scrollX + rect.width / 2;
+            const cy = rect.top + window.scrollY + rect.height / 2;
+            // Spread across the text width so particles emerge from the
+            // whole word, with a tighter vertical spread.
+            const spreadX = Math.max(rect.width / 2, 20);
+            const spreadY = Math.max(rect.height / 2, 10);
+            addParticles(delta * PARTICLES_PER_CHAR, cx, cy, spreadX, spreadY);
+        } else if (delta < 0 && typeof removeParticles === 'function') {
+            removeParticles(-delta * PARTICLES_PER_CHAR);
+        }
+    });
+
+    observer.observe(quote, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+    });
+})();
