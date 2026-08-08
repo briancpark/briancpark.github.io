@@ -88,6 +88,13 @@ function setup() {
     }
 }
 
+// transition.js cancels the click on the "pintos" link and hands the outro to
+// the draw() hook below. It must not do that unless this build of sketch.js
+// actually has the hook — a browser holding a cached pre-hook sketch.js would
+// otherwise swallow the navigation and strand the visitor here. This flag is
+// how transition.js tells the two apart.
+window.SKETCH_HAS_PINTOS_HOOK = true;
+
 function draw() {
     // When the visitor is leaving for the Pintos site, hand the frame over to
     // the outro: particles peel off the flow field and settle onto a triangle

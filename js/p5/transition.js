@@ -21,7 +21,16 @@
     const DURATION = 95;
     const HOLD = 14;
 
-    const T = {active: false, frame: 0, href: null, mesh: null};
+    const T = {active: false, frame: 0, href: null, mesh: null, watchdog: 0};
+
+    // The outro navigates from inside render(), which only runs if the sketch's
+    // draw() loop is calling us. If that loop is stalled, throttled, or belongs
+    // to a stale cached sketch.js, the cancelled click would never be replaced
+    // and the link would be dead. Poll for frame progress and, if the outro
+    // hasn't advanced at all for this many consecutive checks, give up on the
+    // animation and just navigate.
+    const WATCHDOG_MS = 500;
+    const WATCHDOG_STALLS = 3;
 
     // mulberry32 — a tiny deterministic PRNG. Pintos jitters its grid with
     // Math.random(); we seed instead so our mesh is stable frame-to-frame. An
@@ -168,15 +177,33 @@
         T.frame++;
         if (T.frame >= DURATION + HOLD) {
             T.active = false; // stop rendering; we're navigating
-            window.location.href = T.href;
+            go();
+        }
+    }
+
+    // Single exit point, so the watchdog and the finished outro can't both
+    // fire the navigation.
+    function go() {
+        if (T.watchdog) {
+            window.clearInterval(T.watchdog);
+            T.watchdog = 0;
+        }
+        if (T.href) {
+            const href = T.href;
+            T.href = null;
+            window.location.href = href;
         }
     }
 
     // Begin the outro and schedule the navigation. Falls back to an immediate
     // jump if the sketch globals aren't present.
     function arm(href) {
+        // Never cancel the click unless the running sketch can actually drive
+        // the outro. window.SKETCH_HAS_PINTOS_HOOK is set by the sketch.js that
+        // owns the draw() hook; a cached older build won't have it.
         if (typeof particles === 'undefined' || !particles.length ||
-            typeof width === 'undefined') {
+            typeof width === 'undefined' ||
+            !window.SKETCH_HAS_PINTOS_HOOK) {
             window.location.href = href;
             return;
         }
@@ -185,6 +212,22 @@
         T.mesh = buildMesh(width, height);
         assignTargets(T.mesh);
         T.active = true;
+
+        let seen = -1;
+        let stalls = 0;
+        T.watchdog = window.setInterval(function() {
+            if (!T.active) return;
+            if (T.frame === seen) {
+                stalls++;
+            } else {
+                seen = T.frame;
+                stalls = 0;
+            }
+            if (stalls >= WATCHDOG_STALLS) {
+                T.active = false;
+                go();
+            }
+        }, WATCHDOG_MS);
 
         // Dissolve the page chrome so only the canvas carries the transition.
         const fade = (el) => {
