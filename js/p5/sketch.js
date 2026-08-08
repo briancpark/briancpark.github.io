@@ -82,6 +82,14 @@ function setup() {
 }
 
 function draw() {
+    // When the visitor is leaving for the Pintos site, hand the frame over to
+    // the outro: particles peel off the flow field and settle onto a triangle
+    // mesh. See js/p5/transition.js.
+    if (window.PintosTransition && window.PintosTransition.active) {
+        window.PintosTransition.render();
+        return;
+    }
+
     // Draw a slightly transparent black background to fade old trails
     background(0, 0, 0, 40); // HSB mode: black with low alpha
 
