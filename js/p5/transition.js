@@ -68,23 +68,50 @@
     // Home each particle to its nearest vertex. More particles than vertices is
     // wanted: the extras stack into a bright node sitting exactly on a mesh
     // corner, which is what makes the wireframe's joints glow.
+    //
+    // Runs synchronously inside the click handler, so it can't be the naive
+    // particles x vertices scan: on a 5K display that's ~30k particles against
+    // ~2.3k vertices, which stalls the tab for several hundred ms right as the
+    // visitor clicks. Instead exploit the fact that vertex (i, j) sits near its
+    // base position ((i-2)*spacing, (j-2)*spacing) and only ever strays by the
+    // 0.4*spacing jitter: the nearest vertex to a point is therefore always
+    // within 2 grid cells of that point's own cell, so 25 candidates suffice.
+    // (A vertex k cells away is >= (k-0.9)*spacing off, and the nearest vertex
+    // is always <= 1.27*spacing away, so k >= 3 can never win.)
+    const SEARCH = 2;
+
     function assignTargets(mesh) {
+        const g = mesh.grid;
+        const sp = mesh.spacing;
         for (let p = 0; p < particles.length; p++) {
             const part = particles[p];
+            const px = part.pos.x;
+            const py = part.pos.y;
+            const i0 = Math.round(px / sp) + 2;
+            const j0 = Math.round(py / sp) + 2;
+
+            const iLo = Math.max(0, i0 - SEARCH);
+            const iHi = Math.min(mesh.cols, i0 + SEARCH);
+            const jLo = Math.max(0, j0 - SEARCH);
+            const jHi = Math.min(mesh.rows, j0 + SEARCH);
+
             let best = null;
             let bestD = Infinity;
-            for (let v = 0; v < mesh.verts.length; v++) {
-                const dv = mesh.verts[v];
-                const dx = dv.x - part.pos.x;
-                const dy = dv.y - part.pos.y;
-                const d = dx * dx + dy * dy;
-                if (d < bestD) {
-                    bestD = d;
-                    best = dv;
+            for (let j = jLo; j <= jHi; j++) {
+                const row = g[j];
+                for (let i = iLo; i <= iHi; i++) {
+                    const dv = row[i];
+                    const dx = dv.x - px;
+                    const dy = dv.y - py;
+                    const d = dx * dx + dy * dy;
+                    if (d < bestD) {
+                        bestD = d;
+                        best = dv;
+                    }
                 }
             }
-            part.tx = best ? best.x : part.pos.x;
-            part.ty = best ? best.y : part.pos.y;
+            part.tx = best ? best.x : px;
+            part.ty = best ? best.y : py;
         }
     }
 

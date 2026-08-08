@@ -26,6 +26,8 @@ let globalHue = 0;
 
 const particles = [];
 let particleCap = 0;
+// Ceiling on the area-scaled particle count — see setup().
+const MAX_PARTICLES = 10000;
 
 let flowfield;
 
@@ -57,7 +59,12 @@ function setup() {
         flowfield[i] = {x: 0, y: 0};
     }
 
-    const particleCount = floor((windowWidth * windowHeight) / 500);
+    // Density is one particle per 500px^2, but clamped: the raw formula scales
+    // with window *area*, so a 5K display asks for ~30k particles (10x this
+    // laptop) and every frame pays for all of them. MAX_PARTICLES trades a
+    // little density on very large monitors for a frame rate that holds.
+    const particleCount = min(
+        floor((windowWidth * windowHeight) / 500), MAX_PARTICLES);
     // Hard cap so typed-pulse spawns can't grow the pool unbounded.
     particleCap = particleCount * 2;
     for (let i = 0; i < particleCount; i++) {

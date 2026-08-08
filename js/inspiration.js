@@ -1,11 +1,17 @@
 const daySinceFirstCode = new Date('01/22/2019');
+const daySinceFirstVibeCode = new Date('08/01/2025');
 const todayDate = new Date();
 const time = todayDate.getTime() - daySinceFirstCode.getTime();
 const days = Math.floor(time / (1000 * 3600 * 24));
 const codedDaysString = 'Coded For ' + days + ' Days Straight';
 
+const vibeTime = todayDate.getTime() - daySinceFirstVibeCode.getTime();
+const vibeDays = Math.floor(vibeTime / (1000 * 3600 * 24));
+const vibeCodedDaysString = 'Vibe Coded For ' + vibeDays + ' Days Straight';
+
 /* eslint-disable max-len */
 const thoughts = [
+    vibeCodedDaysString,
     codedDaysString,
     'Let’s Make the World Better with Software',
     '안녕!',
