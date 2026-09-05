@@ -224,6 +224,9 @@ function windowResized() {
 // eslint-disable-next-line no-unused-vars
 function addParticles(count, centerX, centerY, spreadX, spreadY) {
     if (typeof random !== 'function' || !particleCap) return;
+    // Mid-outro the pool is homing onto fixed targets; a fresh particle has
+    // none and would flicker in at random, so hold the pulses until it ends.
+    if (window.PintosTransition && window.PintosTransition.active) return;
     const hasCenter =
         (typeof centerX === 'number' && typeof centerY === 'number');
     const rx = (typeof spreadX === 'number') ? spreadX : 40;

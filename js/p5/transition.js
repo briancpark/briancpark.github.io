@@ -326,6 +326,11 @@
             }
         }, WATCHDOG_MS);
 
+        // On phones the link lives in the burger menu; fold it away so the
+        // panel does not sit over the outro. navigation.js owns the toggle.
+        const burger = document.querySelector('.burger');
+        if (burger && burger.classList.contains('toggle')) burger.click();
+
         // Dissolve the page chrome so only the canvas carries the transition.
         // The nav stays when heading to the about page: it has the same nav,
         // so it is part of the continuity.
@@ -366,6 +371,40 @@
             hook('nav a[href$="about.html"]', 'about');
         }
     }
+
+    // Coming *back* to this page, browsers often restore it from the
+    // back-forward cache exactly as it was left: mid- or post-outro, with the
+    // quote faded, the footer slid in and the particles parked on the
+    // lattice. Put the chrome back and drop any outro state so the page is
+    // itself again; the particles simply resume flowing from where they sit.
+    function reset() {
+        T.active = false;
+        T.href = null;
+        T.mode = null;
+        if (T.watchdog) {
+            window.clearInterval(T.watchdog);
+            T.watchdog = 0;
+        }
+        const restore = (el) => {
+            if (!el) return;
+            el.style.transition = 'none';
+            el.style.opacity = '';
+        };
+        restore(document.getElementById('quote'));
+        restore(document.querySelector('nav'));
+        const foot = document.querySelector('.outro-footer');
+        if (foot) {
+            foot.style.transition = 'none';
+            foot.classList.remove('show');
+            // Re-enable the slide after this style pass has applied.
+            window.setTimeout(() => {
+                foot.style.transition = '';
+            }, 50);
+        }
+    }
+    window.addEventListener('pageshow', (ev) => {
+        if (ev.persisted) reset();
+    });
 
     T.render = render;
     window.PintosTransition = T;
