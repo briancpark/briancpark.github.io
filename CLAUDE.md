@@ -128,7 +128,10 @@ from inside `render()`. Two modes:
   particles settle onto those points and their colour settles to the same
   green; the final frames wipe the canvas and draw only the points. The about
   page then opens on exactly that frame and each point unfolds into its number
-  (`UNFOLD_FRAMES` in `matrix.js`).
+  (`UNFOLD_FRAMES` in `matrix.js`). The nav is kept (both pages have it) and
+  a copy of the about footer (`.outro-footer` in `index.html`, fixed to the
+  viewport bottom, hidden below the edge) slides up during the outro so it is
+  already in place when about loads.
 
 **Both pages must agree on cell positions to the pixel**, so the geometry —
 font stack, cell pitch, the swells and how far cells orbit on them — lives in
@@ -187,14 +190,17 @@ pass unless asked.
 
 | Page | CSS beyond `main.css` + `navbar.css` |
 | --- | --- |
-| `index.html` | `home.css` |
+| `index.html` | `home.css`, `footer.css` (for `.outro-footer`) |
 | `404.html` | `home.css` |
 | `about.html` | `about.css`, `footer.css` (+ `js/p5/matrix.js`, see above) |
 | `academia.html` | `academia.css`, `footer.css` |
 
 The nav markup is duplicated in all four pages — currently `about` and `pintos`,
 with a page's own link written as `#` where one exists. **Editing the nav means
-editing four files** — grep to be sure you caught them all. `404.html` also
+editing four files** — grep to be sure you caught them all. The footer markup
+is in `about.html`, `academia.html` and (as the decorative `.outro-footer`)
+`index.html`; keep the first and last identical or the about outro's final
+frame will not match the about page. `404.html` also
 carries a commented-out `projects` link; it is inert, so ignore it when
 grepping.
 

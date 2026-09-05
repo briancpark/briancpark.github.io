@@ -336,6 +336,11 @@
         };
         fade(document.getElementById('quote'));
         if (mode !== 'about') fade(document.querySelector('nav'));
+        // ...and, for about, bring in that page's footer ahead of time.
+        if (mode === 'about') {
+            const foot = document.querySelector('.outro-footer');
+            if (foot) foot.classList.add('show');
+        }
     }
 
     function wire() {

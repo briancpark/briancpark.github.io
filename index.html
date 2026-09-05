@@ -64,6 +64,7 @@ Brian Park
     <link href="css/main.css" rel="stylesheet"/>
     <link href="css/navbar.css" rel="stylesheet"/>
     <link href="css/home.css" rel="stylesheet"/>
+    <link href="css/footer.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154924062-1"></script>
@@ -95,19 +96,41 @@ Brian Park
         <div class="line3"></div>
     </div>
 </nav>
-<script src="js/navigation.js?v=20260906"></script>
+<script src="js/navigation.js?v=20260906b"></script>
 <!--Dynamic Nav Bar-->
 <section>
     <h1 id="quote"></h1>
-    <script src="js/typed.min.js?v=20260906"></script>
-    <script src="js/inspiration.js?v=20260906"></script>
+    <script src="js/typed.min.js?v=20260906b"></script>
+    <script src="js/inspiration.js?v=20260906b"></script>
 </section>
+<!--
+The about page has a footer and this page does not, so on the "about" outro
+(js/p5/transition.js) this copy of it slides up from below the viewport and
+is in place before the about page loads. Decorative here: hidden, not
+interactive, out of the accessibility tree. Keep the markup identical to the
+footer in about.html or the two frames will not match.
+-->
+<footer class="outro-footer" aria-hidden="true">
+    <ul>
+        <li><a href="https://www.linkedin.com/in/brianparkberkeley/" target=blank tabindex="-1"><img alt=""
+                                                                                                    height="32"
+                                                                                                    src="svg-logo/linkedin.svg"></a>
+        </li>
+        <li><a href="https://github.com/briancpark" target=blank tabindex="-1"><img alt="" height="32"
+                                                                                   src="svg-logo/github.svg"></a></li>
+        <li><a href="mailto:me@briancpark.com" tabindex="-1"><img alt="" height="32" src="svg-logo/mail.svg"></a></li>
+    </ul>
+    <ul>
+        <li>&copy; Brian Park 2026</li>
+        <li>Hosted by GitHub Pages</li>
+    </ul>
+</footer>
 <!--Animation-->
 <script src="js/p5/p5.min.js"></script>
-<script src="js/p5/sketch.js?v=20260906"></script>
-<script src="js/p5/particle.js?v=20260906"></script>
-<script src="js/p5/lattice.js?v=20260906"></script>
-<script src="js/p5/transition.js?v=20260906"></script>
+<script src="js/p5/sketch.js?v=20260906b"></script>
+<script src="js/p5/particle.js?v=20260906b"></script>
+<script src="js/p5/lattice.js?v=20260906b"></script>
+<script src="js/p5/transition.js?v=20260906b"></script>
 <!--Animation-->
 </body>
 </html>
