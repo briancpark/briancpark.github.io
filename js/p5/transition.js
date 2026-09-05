@@ -1,18 +1,25 @@
-/* transition.js — Seamless outro into the Pintos site.
+/* transition.js — Seamless outros from the home page.
  *
- * The home page runs a Perlin flow-field particle animation (sketch.js). The
- * Pintos site — a DIFFERENT origin — opens on a Perlin *triangle-mesh*
- * tessellation (its own background.js). We can't carry a live canvas across
- * the page load, so instead the two ends meet in the middle: clicking the
- * "pintos" tab doesn't navigate right away. The drifting particles peel off
- * the flow field and ease onto the vertices of a triangle grid built with the
- * SAME spacing math Pintos uses, while the triangle wireframe fades in over
- * them. The last frame this page paints — a rainbow mesh on black — is the
- * frame Pintos opens on, so the cross-site jump reads as one continuous scene.
+ * The home page runs a Perlin flow-field particle animation (sketch.js). We
+ * can't carry a live canvas across a page load, so instead the two ends meet
+ * in the middle: clicking a nav link doesn't navigate right away. The
+ * drifting particles peel off the flow field and ease onto whatever the
+ * destination opens on, and the last frame this page paints is the frame the
+ * next page starts from, so the jump reads as one continuous scene.
  *
- * Lives entirely on this site; Pintos is untouched. Degrades to a plain
- * navigation when the sketch isn't running (the other pages) or the visitor
- * prefers reduced motion. */
+ * Two destinations:
+ *
+ *  - "pintos": a DIFFERENT origin whose background.js opens on a Perlin
+ *    triangle-mesh tessellation. Particles home onto the vertices of a grid
+ *    built with the SAME spacing math Pintos uses while the wireframe fades
+ *    in over them. Pintos itself is untouched.
+ *  - "about": this site's about page, whose matrix.js opens on a field of
+ *    green points, one per value cell, that unfold into numbers. Particles
+ *    home onto those exact points (geometry from js/p5/lattice.js, shared
+ *    with matrix.js) while their colour settles to the same green.
+ *
+ * Degrades to a plain navigation when the sketch isn't running (the other
+ * pages) or the visitor prefers reduced motion. */
 (function() {
     'use strict';
 
@@ -21,7 +28,12 @@
     const DURATION = 95;
     const HOLD = 14;
 
-    const T = {active: false, frame: 0, href: null, mesh: null, watchdog: 0};
+    const T = {
+        active: false, frame: 0, href: null, mode: null, mesh: null,
+        lattice: null, watchdog: 0,
+    };
+    // Green of the about page's field, in this sketch's HSB-255 space.
+    const ABOUT_HUE = 125 / 360 * 255;
 
     // The outro navigates from inside render(), which only runs if the sketch's
     // draw() loop is calling us. If that loop is stalled, throttled, or belongs
@@ -124,6 +136,63 @@
         }
     }
 
+    // The about page's opening frame: one point per visible value cell, at
+    // its swell-displaced position on that page's first draw (t = 1).
+    function buildLattice(w, h) {
+        const probe = document.createElement('canvas').getContext('2d');
+        const m = latticeMetrics(w, h, probe);
+        const sway = {h: 0, g: 0};
+        const half = LATTICE_GROUP_CHARS * m.cw / 2;
+        const pts = [];
+        for (let r = 0; r < m.visR; r++) {
+            const row = [];
+            for (let c = 0; c < m.visG; c++) {
+                latticeSwell(c, r, 1, sway);
+                row.push({
+                    x: m.ox + c * LATTICE_GROUP_PITCH * m.cw + half +
+                        sway.g * m.cw * LATTICE_SWAY_X,
+                    y: m.oy + r * m.ch + m.ch / 2 + sway.h * m.ch *
+                        LATTICE_SWAY_Y,
+                });
+            }
+            pts.push(row);
+        }
+        return {m, pts};
+    }
+
+    // Home each particle to its nearest lattice point. Cells only stray from
+    // their base position by the swell (well under a cell pitch), so the
+    // nearest point is always within one cell of the particle's own.
+    function assignLatticeTargets(lat) {
+        const m = lat.m;
+        const pitchX = LATTICE_GROUP_PITCH * m.cw;
+        for (let p = 0; p < particles.length; p++) {
+            const part = particles[p];
+            const px = part.pos.x;
+            const py = part.pos.y;
+            const c0 = Math.floor((px - m.ox) / pitchX);
+            const r0 = Math.floor((py - m.oy) / m.ch);
+            let best = null;
+            let bestD = Infinity;
+            for (let r = r0 - 1; r <= r0 + 1; r++) {
+                if (r < 0 || r >= m.visR) continue;
+                for (let c = c0 - 1; c <= c0 + 1; c++) {
+                    if (c < 0 || c >= m.visG) continue;
+                    const q = lat.pts[r][c];
+                    const dx = q.x - px;
+                    const dy = q.y - py;
+                    const d = dx * dx + dy * dy;
+                    if (d < bestD) {
+                        bestD = d;
+                        best = q;
+                    }
+                }
+            }
+            part.tx = best ? best.x : px;
+            part.ty = best ? best.y : py;
+        }
+    }
+
     function easeInOutQuad(t) {
         return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
     }
@@ -139,9 +208,16 @@
 
         // Pull each particle toward its vertex. k ramps up: motion starts soft
         // (long rainbow streaks flying inward) and finishes crisp (settled
-        // nodes that stop smearing).
+        // nodes that stop smearing). Bound for the about page, the rainbow
+        // also settles onto that page's green.
         const k = 0.05 + e * 0.22;
-        stroke(globalHue, 255, 255, 255);
+        if (T.mode === 'about') {
+            const w = Math.min(1, e * 1.4);
+            stroke(globalHue + (ABOUT_HUE - globalHue) * w,
+                255 - 55 * w, 255, 255);
+        } else {
+            stroke(globalHue, 255, 255, 255);
+        }
         strokeWeight(2.5);
         for (let i = 0; i < particles.length; i++) {
             const part = particles[i];
@@ -153,8 +229,23 @@
         }
         globalHue = (globalHue + 1) % 256;
 
-        // Fade the triangle wireframe in over the converging particles.
-        if (e > 0.02) {
+        if (T.mode === 'about') {
+            // The rest: draw the destination's points themselves. As the
+            // particles settle they stack onto these, and during the hold the
+            // canvas is wiped so the exact opening frame of the about page
+            // is what the visitor is looking at when it loads.
+            if (T.frame >= DURATION) background(0);
+            stroke(ABOUT_HUE, 200, 255, 255);
+            strokeWeight(3);
+            const pts = T.lattice.pts;
+            for (let r = 0; r < pts.length; r++) {
+                const row = pts[r];
+                for (let c = 0; c < row.length; c++) {
+                    point(row[c].x, row[c].y);
+                }
+            }
+        } else if (e > 0.02) {
+            // Fade the triangle wireframe in over the converging particles.
             noFill();
             strokeWeight(2.5);
             const g = T.mesh.grid;
@@ -197,7 +288,7 @@
 
     // Begin the outro and schedule the navigation. Falls back to an immediate
     // jump if the sketch globals aren't present.
-    function arm(href) {
+    function arm(href, mode) {
         // Never cancel the click unless the running sketch can actually drive
         // the outro. window.SKETCH_HAS_PINTOS_HOOK is set by the sketch.js that
         // owns the draw() hook; a cached older build won't have it.
@@ -208,9 +299,15 @@
             return;
         }
         T.href = href;
+        T.mode = mode;
         T.frame = 0;
-        T.mesh = buildMesh(width, height);
-        assignTargets(T.mesh);
+        if (mode === 'about') {
+            T.lattice = buildLattice(width, height);
+            assignLatticeTargets(T.lattice);
+        } else {
+            T.mesh = buildMesh(width, height);
+            assignTargets(T.mesh);
+        }
         T.active = true;
 
         let seen = -1;
@@ -230,30 +327,39 @@
         }, WATCHDOG_MS);
 
         // Dissolve the page chrome so only the canvas carries the transition.
+        // The nav stays when heading to the about page: it has the same nav,
+        // so it is part of the continuity.
         const fade = (el) => {
             if (!el) return;
             el.style.transition = 'opacity 0.5s ease';
             el.style.opacity = '0';
         };
         fade(document.getElementById('quote'));
-        fade(document.querySelector('nav'));
+        if (mode !== 'about') fade(document.querySelector('nav'));
     }
 
     function wire() {
         const reduce = window.matchMedia &&
             window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const links = document.querySelectorAll('a[href*="pintos-html"]');
-        links.forEach((a) => {
-            a.addEventListener('click', (ev) => {
-                // Let the browser own modified / new-tab / non-primary clicks.
-                if (reduce || ev.metaKey || ev.ctrlKey || ev.shiftKey ||
-                    ev.button !== 0 || a.target === '_blank') {
-                    return;
-                }
-                ev.preventDefault();
-                arm(a.href);
+        const hook = (selector, mode) => {
+            document.querySelectorAll(selector).forEach((a) => {
+                a.addEventListener('click', (ev) => {
+                    // Let the browser own modified / new-tab / non-primary
+                    // clicks.
+                    if (reduce || ev.metaKey || ev.ctrlKey || ev.shiftKey ||
+                        ev.button !== 0 || a.target === '_blank') {
+                        return;
+                    }
+                    ev.preventDefault();
+                    arm(a.href, mode);
+                });
             });
-        });
+        };
+        hook('a[href*="pintos-html"]', 'pintos');
+        // Only if the lattice geometry is loaded; otherwise a plain link.
+        if (typeof latticeMetrics === 'function') {
+            hook('nav a[href$="about.html"]', 'about');
+        }
     }
 
     T.render = render;

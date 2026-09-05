@@ -29,3 +29,19 @@ a {
         margin-right: 150px;
     }
 }
+/*
+ * While the matrix sketch runs (html.matrix, set by about.html), the prose is
+ * drawn on the canvas instead. Keep <main> in the accessibility tree but take
+ * it out of view — the standard visually-hidden recipe, not display:none.
+ */
+.matrix main {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}

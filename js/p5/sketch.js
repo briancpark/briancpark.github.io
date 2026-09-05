@@ -217,8 +217,13 @@ function windowResized() {
     background(0);
 }
 
+// Both of these are called from inspiration.js's MutationObserver, which
+// starts with the first typed character — often before p5 has bound its
+// globals on `load` (`random`, `width`, ...). Until then there is nothing to
+// add to, so bail rather than throw.
 // eslint-disable-next-line no-unused-vars
 function addParticles(count, centerX, centerY, spreadX, spreadY) {
+    if (typeof random !== 'function' || !particleCap) return;
     const hasCenter =
         (typeof centerX === 'number' && typeof centerY === 'number');
     const rx = (typeof spreadX === 'number') ? spreadX : 40;
@@ -245,6 +250,7 @@ function addParticles(count, centerX, centerY, spreadX, spreadY) {
 
 // eslint-disable-next-line no-unused-vars
 function removeParticles(count) {
+    if (!particleCap) return;
     let removed = 0;
     for (let i = particles.length - 1; i >= 0 && removed < count; i--) {
         if (!particles[i].protected) {

@@ -18,6 +18,7 @@ Hope the website experience is snappy, responsive, and visually appealing! Enjoy
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="A Portfolio for Brian Park" name="Brian Park">
     <title>Brian Park</title>
     <link href="favicon.png" rel="shortcut icon" type="image/png"/>
@@ -26,6 +27,31 @@ Hope the website experience is snappy, responsive, and visually appealing! Enjoy
     <link href="css/about.css" rel="stylesheet"/>
     <link href="css/footer.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!--
+    The float-matrix background (js/p5/matrix.js). Opted into here, in <head>,
+    so <main> is already hidden by the time the body first paints — otherwise
+    the prose would flash before the canvas takes over. Visitors who prefer
+    reduced motion never download p5 at all and get the plain page. The
+    scripts are inserted with async=false so they execute in order, which
+    p5's global mode needs.
+    -->
+    <script>
+        (function() {
+            if (window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+            document.documentElement.classList.add('matrix');
+            ['js/p5/p5.min.js', 'js/p5/lattice.js?v=20260906',
+                'js/p5/matrix.js?v=20260906'].forEach(
+                function(src) {
+                    var s = document.createElement('script');
+                    s.src = src;
+                    s.async = false;
+                    document.head.appendChild(s);
+                });
+        })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154924062-1"></script>
     <script>
@@ -58,6 +84,12 @@ Hope the website experience is snappy, responsive, and visually appealing! Enjoy
 </nav>
 <script src="js/navigation.js"></script>
 <!--Dynamic Nav Bar-->
+<!--
+The prose below is the source of truth for the matrix background: matrix.js
+reads every h6/p inside <main> and lays it onto its character grid. While the
+sketch runs, <main> is hidden visually (about.css) but stays in the DOM for
+screen readers and search engines. Edit copy here, never in the JS.
+-->
 <main>
     <section>
         <h6>About Me</h6>

@@ -33,21 +33,26 @@ which visitors run fresh HTML against stale JS. That exact mismatch once left th
 "pintos" link permanently dead: `transition.js` cancelled the click and then
 waited forever for a `draw()` hook that the cached `sketch.js` didn't have.
 
-So: **after editing any file under `js/`, bump `?v=` in both `index.html` and
-`404.html`.** `p5.min.js` is exempt only because its filename is already
+So: **after editing any file under `js/`, bump `?v=` in `index.html`,
+`404.html`, and `about.html`.** `about.html` loads `matrix.js` from an inline
+loader in `<head>` rather than a `<script src>` tag, so grep for `?v=` rather
+than for `<script`. `p5.min.js` is exempt only because its filename is already
 versioned by content. If this becomes tiresome, content-hashed filenames or a
 tiny build step would automate it.
 
-## p5.js sketch
+## p5.js sketches
 
-The animation is a Perlin flow field. `index.html` and `404.html` load it;
-`about.html` and `academia.html` do not.
+There are two. The home animation is a Perlin flow field, loaded by
+`index.html` and `404.html`. The about page runs a separate sketch, the float
+matrix, loaded by `about.html` only. `academia.html` loads neither.
 
 ```
 js/p5/p5.min.js     vendored p5 v1.0.0, minified
-js/p5/sketch.js     setup/draw, flow field, pointer reactivity
-js/p5/particle.js   Particle constructor
-js/p5/transition.js the "pintos" outro (index.html only)
+js/p5/sketch.js     home: setup/draw, flow field, pointer reactivity
+js/p5/particle.js   home: Particle constructor
+js/p5/lattice.js    both: the about grid's geometry + swells (see below)
+js/p5/transition.js home: the "pintos" and "about" outros (index.html only)
+js/p5/matrix.js     about: float matrix that decodes into the page text
 ```
 
 Things that will bite you:
@@ -73,15 +78,70 @@ Things that will bite you:
 Rough budget on a 16" MBP at 2x: ~3,200 particles, 8.3 ms/frame steady state,
 of which ~2.6 ms is JS. There is headroom, but not a lot.
 
-## The pintos transition
+## The about-page matrix
 
-Clicking "pintos" on `index.html` does not navigate immediately.
-`transition.js` cancels the click and eases the particles onto a triangle mesh
-matching the one the Pintos site opens on, so the cross-origin jump reads as one
-continuous scene. It navigates from inside `render()`.
+`about.html` draws a full-screen grid of two-decimal floats, cmatrix-style,
+sampled like model weights (Gaussian around zero). The grid rides a sum of
+travelling swells so cells orbit like water particles and rows drift out of
+line; crests are lit, troughs dimmer but never empty. Activation sweeps run over that in all
+four directions (columns green, rows yellow-green) with a bright head and
+fading trail. Periodic "matmul" events select a whole row and column, sweep
+a head along each, and flash the intersecting cell as the output; half of
+them aim at still-encoded prose, and a hit decodes that whole line of text.
+The prose is laid onto the same (undisplaced) character grid. The pointer
+paints the site's cycling hue into the field, and click-and-drag pulls the
+sheet around with a spring-back on release. Prose
+cells look like digits until the pointer comes near, then scramble into
+letters and stay decoded. Moving the pointer into a paragraph's hitbox (or
+tapping it) decodes all of it, blacks out the digits behind it and sets it
+bold; Enter decodes everything.
+
+- **The copy lives in `<main>`, not in the JS.** `matrix.js` reads every
+  `h6`/`p` inside `main` on load, so edit text in the HTML. `<main>` is only
+  hidden visually (`.matrix main` in `about.css`, the visually-hidden recipe)
+  and stays in the accessibility tree; the canvas is `aria-hidden`.
+- **The opt-in lives in an inline `<head>` script.** It adds `html.matrix`
+  and injects `p5.min.js` + `lattice.js` + `matrix.js` in order. It runs in `<head>` so the
+  prose is hidden before first paint. Under `prefers-reduced-motion: reduce`
+  it does nothing: no class, no p5 download, plain page.
+- **It bails to the plain page if the text cannot fit.** `layoutText()`
+  needs the wrapped prose to fit between the nav and footer; on short screens
+  it first grows the canvas taller than the viewport (the page then scrolls,
+  with `body` min-height pushing the footer down) and only gives up if the
+  grid is too narrow. `bail()` removes the class and the canvas.
+- **Glyphs go through `drawingContext`, not p5 `text()`**, and idle digits
+  are batched into one `fillText` per row. Do not "simplify" this back to
+  per-cell `text()` calls; that is roughly 10k calls a frame.
+- `about.html` now has a `<meta name="viewport">` (it never did before). The
+  grid was unusable at the 980px fallback layout width on phones.
+
+## The nav transitions (pintos and about)
+
+Clicking "pintos" or "about" on `index.html` does not navigate immediately.
+`transition.js` cancels the click and eases the particles onto whatever the
+destination opens on, so the jump reads as one continuous scene. It navigates
+from inside `render()`. Two modes:
+
+- **pintos**: a triangle mesh matching the one the (cross-origin) Pintos site
+  opens on; the wireframe fades in over the settling particles.
+- **about**: the about page's field of green points, one per value cell. The
+  particles settle onto those points and their colour settles to the same
+  green; the final frames wipe the canvas and draw only the points. The about
+  page then opens on exactly that frame and each point unfolds into its number
+  (`UNFOLD_FRAMES` in `matrix.js`).
+
+**Both pages must agree on cell positions to the pixel**, so the geometry —
+font stack, cell pitch, the swells and how far cells orbit on them — lives in
+`js/p5/lattice.js`, loaded by both `index.html` and `about.html` before the
+script that uses it. `lattice.js` is deliberately deterministic (no `random()`,
+no `noise()`). If you change the about grid's look, change it there, not in
+`matrix.js`, or the outro will land the particles somewhere else. The outro
+computes positions for the visible grid at t=1, which is the about page's
+first draw; the about page's grid also carries overscan for dragging, which is
+why `matrix.js` indexes the swell relative to the visible grid.
 
 Cancelling a navigation and owing the user a replacement is the risky part, so
-there are two independent guards. Do not remove either:
+there are two independent guards, shared by both modes. Do not remove either:
 
 1. `sketch.js` sets `window.SKETCH_HAS_PINTOS_HOOK`. `arm()` refuses to cancel
    the click unless it is present, so an older cached `sketch.js` falls through
@@ -90,8 +150,9 @@ there are two independent guards. Do not remove either:
    advance, covering a render loop stalled for any other reason.
 
 Both exit through `go()`, which clears the timer so they cannot double-fire.
-Other pages link to pintos without loading `transition.js`; that degrades to a
-normal link, which is intended.
+Other pages link to pintos and about without loading `transition.js`; that
+degrades to a normal link, which is intended. The about hook is only wired if
+`lattice.js` actually loaded.
 
 ## academia.html is deliberately unlisted
 
@@ -107,15 +168,17 @@ never read the tag.
 
 ```sh
 npx eslint js/inspiration.js js/navigation.js js/p5/sketch.js \
-           js/p5/particle.js js/p5/transition.js
+           js/p5/particle.js js/p5/lattice.js js/p5/transition.js \
+           js/p5/matrix.js
 ```
 
 Lint explicitly — never `npx eslint js/`, which would try to parse the vendored
 `p5.min.js`.
 
-**The repo is not lint-clean and never has been.** Expect ~20 pre-existing
+**The repo is not lint-clean and never has been.** Expect ~50 pre-existing
 errors, all `require-jsdoc` (the Google config wants JSDoc on everything; this
-codebase has none) and `no-unused-vars` on the p5 entry points described above.
+codebase has none) and `no-unused-vars` on the p5 entry points described above
+and on `lattice.js` globals that only other scripts read.
 Both are config mismatches rather than defects. Judge a change by whether it
 *adds* errors, not by whether the run is green. Do not mass-add JSDoc to make it
 pass unless asked.
@@ -126,7 +189,7 @@ pass unless asked.
 | --- | --- |
 | `index.html` | `home.css` |
 | `404.html` | `home.css` |
-| `about.html` | `about.css`, `footer.css` |
+| `about.html` | `about.css`, `footer.css` (+ `js/p5/matrix.js`, see above) |
 | `academia.html` | `academia.css`, `footer.css` |
 
 The nav markup is duplicated in all four pages — currently `about` and `pintos`,
